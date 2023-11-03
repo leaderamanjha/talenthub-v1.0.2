@@ -87,8 +87,6 @@ class HomeScreenContainer1Screen extends StatelessWidget {
         return OrderHistoryScreen();
       case AppRoutes.trasactionHistoryScreen:
         return TrasactionHistoryScreen();
-      case AppRoutes.helpScreen:
-        return HelpScreen();
 
       default:
         return DefaultWidget();

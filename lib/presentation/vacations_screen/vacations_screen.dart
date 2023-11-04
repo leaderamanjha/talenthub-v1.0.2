@@ -64,32 +64,8 @@ class VacationsScreen extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: CustomBottomBar(
-          onChanged: (BottomBarEnum type) {
-            Navigator.pushNamed(
-                navigatorKey.currentContext!, getCurrentRoute(type));
-          },
-        ),
       ),
     );
-  }
-
-  ///Handling route based on bottom click actions
-  String getCurrentRoute(BottomBarEnum type) {
-    switch (type) {
-      case BottomBarEnum.Home:
-        return AppRoutes.homeScreenContainerPage;
-      case BottomBarEnum.Products:
-        return "/";
-      case BottomBarEnum.Wallet:
-        return "/";
-      case BottomBarEnum.Reffer:
-        return "/";
-      case BottomBarEnum.More:
-        return "/";
-      default:
-        return "/";
-    }
   }
 
   ///Handling page based on route

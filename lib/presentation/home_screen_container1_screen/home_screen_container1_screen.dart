@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
 import 'package:talenthub/presentation/help_screen/help_screen.dart';
 import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
 import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
 import 'package:talenthub/presentation/more_screen/more_screen.dart';
 import 'package:talenthub/presentation/offers_screen/offers_screen.dart';
 import 'package:talenthub/presentation/order_history_screen/order_history_screen.dart';
+import 'package:talenthub/presentation/product_screen/product_screen.dart';
 import 'package:talenthub/presentation/referal_screen/referal_screen.dart';
 import 'package:talenthub/presentation/subscription_screen/subscription_screen.dart';
 import 'package:talenthub/presentation/t_c_referal_screen/t_c_referal_screen.dart';
 import 'package:talenthub/presentation/trasaction_history_screen/trasaction_history_screen.dart';
 import 'package:talenthub/presentation/vacations_screen/vacations_screen.dart';
 import 'package:talenthub/presentation/wallet_screen/wallet_screen.dart';
+import 'package:talenthub/presentation/welcome_screen/welcome_screen.dart';
 import 'package:talenthub/widgets/custom_bottom_bar.dart';
 // ignore: duplicate_import
 import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
@@ -87,6 +90,14 @@ class HomeScreenContainer1Screen extends StatelessWidget {
         return OrderHistoryScreen();
       case AppRoutes.trasactionHistoryScreen:
         return TrasactionHistoryScreen();
+      case AppRoutes.helpScreen:
+        return HelpScreen();
+      case AppRoutes.welcomeScreen:
+        return WelcomeScreen();
+      case AppRoutes.cartScreen:
+        return CartScreen();
+      case AppRoutes.productScreen:
+        return ProductScreen();
 
       default:
         return DefaultWidget();

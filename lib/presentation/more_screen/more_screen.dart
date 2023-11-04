@@ -115,7 +115,10 @@ class MoreScreen extends StatelessWidget {
                             imagePath: ImageConstant.imgOrderhistory,
                             height: 34.adaptSize,
                             width: 34.adaptSize,
-                            margin: EdgeInsets.only(bottom: 1.v)),
+                            margin: EdgeInsets.only(bottom: 1.v),
+                            onTap: () {
+                              onTapImgOrderhistory(context);
+                            }),
                         CustomImageView(
                             imagePath: ImageConstant.imgTransaction,
                             height: 34.adaptSize,
@@ -259,7 +262,7 @@ class MoreScreen extends StatelessWidget {
                                       EdgeInsets.only(top: 1.v, bottom: 7.v)),
                               Container(
                                   height: 37.v,
-                                  width: 224.h,
+                                  width: 225.h,
                                   margin: EdgeInsets.only(left: 15.h),
                                   child: Stack(
                                       alignment: Alignment.bottomCenter,
@@ -275,10 +278,14 @@ class MoreScreen extends StatelessWidget {
                                                         .titleSmall))),
                                         Align(
                                             alignment: Alignment.bottomCenter,
-                                            child: Text(
-                                                "Add Money, Add or remove Saved Cards",
-                                                style: CustomTextStyles
-                                                    .labelMedium11))
+                                            child: Padding(
+                                              padding:
+                                                  EdgeInsets.only(top: 20.v),
+                                              child: Text(
+                                                  "Add Money, Add or remove Saved Cards",
+                                                  style: CustomTextStyles
+                                                      .labelMedium11),
+                                            ))
                                       ])),
                               CustomImageView(
                                   imagePath: ImageConstant.imgForward,
@@ -305,7 +312,7 @@ class MoreScreen extends StatelessWidget {
                                           top: 2.v, bottom: 5.v)),
                                   Container(
                                       height: 36.v,
-                                      width: 108.h,
+                                      width: 115.h,
                                       margin: EdgeInsets.only(left: 17.h),
                                       child: Stack(
                                           alignment: Alignment.bottomCenter,
@@ -321,10 +328,14 @@ class MoreScreen extends StatelessWidget {
                                             Align(
                                                 alignment:
                                                     Alignment.bottomCenter,
-                                                child: Text(
-                                                    "Call or Chat with us ",
-                                                    style: CustomTextStyles
-                                                        .labelMedium11))
+                                                child: Padding(
+                                                  padding: EdgeInsets.only(
+                                                      top: 20.v),
+                                                  child: Text(
+                                                      "Call or Chat with us ",
+                                                      style: CustomTextStyles
+                                                          .labelMedium11),
+                                                ))
                                           ])),
                                   Spacer(),
                                   CustomImageView(
@@ -334,71 +345,81 @@ class MoreScreen extends StatelessWidget {
                                       margin: EdgeInsets.only(
                                           top: 7.v, bottom: 8.v))
                                 ]))),
-                    Padding(
-                        padding: EdgeInsets.only(left: 5.h, top: 31.v),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CustomImageView(
-                                  imagePath: ImageConstant.imgScales,
-                                  height: 29.adaptSize,
-                                  width: 29.adaptSize,
-                                  margin:
-                                      EdgeInsets.only(top: 2.v, bottom: 6.v)),
-                              Padding(
-                                  padding: EdgeInsets.only(left: 18.h),
-                                  child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("Legal",
-                                            style: theme.textTheme.titleSmall),
-                                        Text("Privacy, Terms & Conditions",
-                                            style:
-                                                CustomTextStyles.labelMedium11)
-                                      ])),
-                              Spacer(),
-                              CustomImageView(
-                                  imagePath: ImageConstant.imgForward,
-                                  height: 21.adaptSize,
-                                  width: 21.adaptSize,
-                                  margin:
-                                      EdgeInsets.only(top: 7.v, bottom: 9.v))
-                            ])),
-                    Padding(
-                        padding:
-                            EdgeInsets.only(left: 7.h, top: 20.v, bottom: 7.v),
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              CustomImageView(
-                                  imagePath: ImageConstant.imgLogout,
-                                  height: 29.adaptSize,
-                                  width: 29.adaptSize,
-                                  margin:
-                                      EdgeInsets.only(top: 3.v, bottom: 5.v)),
-                              Padding(
-                                  padding: EdgeInsets.only(left: 16.h),
-                                  child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("Logout",
-                                            style: theme.textTheme.titleSmall),
-                                        Text("Logout",
-                                            style:
-                                                CustomTextStyles.labelMedium11)
-                                      ])),
-                              Spacer(),
-                              CustomImageView(
-                                  imagePath: ImageConstant.imgForward,
-                                  height: 21.adaptSize,
-                                  width: 21.adaptSize,
-                                  margin:
-                                      EdgeInsets.only(top: 6.v, bottom: 10.v))
-                            ]))
+                    GestureDetector(
+                        onTap: () {
+                          onTapRowlegel(context);
+                        },
+                        child: Padding(
+                            padding: EdgeInsets.only(left: 5.h, top: 31.v),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomImageView(
+                                      imagePath: ImageConstant.imgScales,
+                                      height: 29.adaptSize,
+                                      width: 29.adaptSize,
+                                      margin: EdgeInsets.only(
+                                          top: 2.v, bottom: 6.v)),
+                                  Padding(
+                                      padding: EdgeInsets.only(left: 18.h),
+                                      child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Legal",
+                                                style:
+                                                    theme.textTheme.titleSmall),
+                                            Text("Privacy, Terms & Conditions",
+                                                style: CustomTextStyles
+                                                    .labelMedium11)
+                                          ])),
+                                  Spacer(),
+                                  CustomImageView(
+                                      imagePath: ImageConstant.imgForward,
+                                      height: 21.adaptSize,
+                                      width: 21.adaptSize,
+                                      margin: EdgeInsets.only(
+                                          top: 7.v, bottom: 9.v))
+                                ]))),
+                    GestureDetector(
+                        onTap: () {
+                          onTapRowLogout(context);
+                        },
+                        child: Padding(
+                            padding: EdgeInsets.only(
+                                left: 7.h, top: 20.v, bottom: 7.v),
+                            child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomImageView(
+                                      imagePath: ImageConstant.imgLogout,
+                                      height: 29.adaptSize,
+                                      width: 29.adaptSize,
+                                      margin: EdgeInsets.only(
+                                          top: 3.v, bottom: 5.v)),
+                                  Padding(
+                                      padding: EdgeInsets.only(left: 16.h),
+                                      child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text("Logout",
+                                                style:
+                                                    theme.textTheme.titleSmall),
+                                            Text("Logout",
+                                                style: CustomTextStyles
+                                                    .labelMedium11)
+                                          ])),
+                                  Spacer(),
+                                  CustomImageView(
+                                      imagePath: ImageConstant.imgForward,
+                                      height: 21.adaptSize,
+                                      width: 21.adaptSize,
+                                      margin: EdgeInsets.only(
+                                          top: 6.v, bottom: 10.v))
+                                ])))
                   ])),
               SizedBox(height: 5.v)
             ])),
@@ -510,6 +531,10 @@ class MoreScreen extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.orderHistoryScreen);
   }
 
+  onTapImgOrderhistory(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.orderHistoryScreen);
+  }
+
   /// Navigates to the trasactionHistoryScreen when the action is triggered.
   ///
   /// The [BuildContext] parameter is used to build the navigation stack.
@@ -552,5 +577,13 @@ class MoreScreen extends StatelessWidget {
   /// to push the named route for the helpScreen.
   onTapRowhelpone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.helpScreen);
+  }
+
+  onTapRowlegel(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.tCReferalScreen);
+  }
+
+  onTapRowLogout(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.welcomeScreen);
   }
 }

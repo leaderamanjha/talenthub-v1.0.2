@@ -35,14 +35,15 @@ class OrderHistoryScreen extends StatelessWidget {
         ),
         body: Container(
           width: double.maxFinite,
-          margin: EdgeInsets.only(left: 80.h),
+          margin: EdgeInsets.only(left: 15.h),
           padding: EdgeInsets.symmetric(vertical: 28.v),
           child: Column(
             children: [
               CustomImageView(
+                margin: EdgeInsets.only(right: 45.h),
                 imagePath: ImageConstant.imgRobotassistant,
                 height: 214.v,
-                width: 123.h,
+                width: 180.h,
               ),
               SizedBox(height: 21.v),
               Text(
@@ -51,9 +52,9 @@ class OrderHistoryScreen extends StatelessWidget {
               ),
               SizedBox(height: 4.v),
               SizedBox(
-                width: 224.h,
+                width: 229.h,
                 child: Text(
-                  "You haven’t made any orders,\nplease explore our healthy\nproducts.",
+                  "You haven’t made any orders, please explore our healthy products.",
                   maxLines: 3,
                   overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.center,

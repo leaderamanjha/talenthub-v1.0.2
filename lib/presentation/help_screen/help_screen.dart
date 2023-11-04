@@ -40,313 +40,323 @@ class HelpScreen extends StatelessWidget {
           ],
           styleType: Style.bgFill,
         ),
-        body: Container(
-          width: double.maxFinite,
-          padding: EdgeInsets.symmetric(
-            horizontal: 18.h,
-            vertical: 14.v,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: EdgeInsets.only(left: 6.h),
-                child: Text(
-                  "Recent Orders",
-                  style: theme.textTheme.titleMedium,
+        body: SingleChildScrollView(
+          child: Container(
+            width: double.maxFinite,
+            padding: EdgeInsets.symmetric(
+              horizontal: 18.h,
+              vertical: 14.v,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 6.h),
+                  child: Text(
+                    "Recent Orders",
+                    style: theme.textTheme.titleMedium,
+                  ),
                 ),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                  left: 15.h,
-                  top: 7.v,
-                ),
-                padding: EdgeInsets.symmetric(
-                  horizontal: 87.h,
-                  vertical: 44.v,
-                ),
-                decoration: AppDecoration.fillOnPrimary.copyWith(
-                  borderRadius: BorderRadiusStyle.roundedBorder13,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(height: 3.v),
-                    CustomImageView(
-                      imagePath: ImageConstant.imgRobotassistant,
-                      height: 110.v,
-                      width: 63.h,
-                    ),
-                    SizedBox(height: 21.v),
-                    Text(
-                      "No Order Found in Last 7 Days",
-                      style: CustomTextStyles.bodySmallOnPrimaryContainer_1,
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 28.v),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 1.h,
-                  vertical: 14.v,
-                ),
-                decoration: AppDecoration.outlineBlueGray.copyWith(
-                  borderRadius: BorderRadiusStyle.roundedBorder13,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 16.h,
-                        right: 11.h,
+                Container(
+                  margin: EdgeInsets.only(
+                    left: 1.h,
+                    top: 7.v,
+                  ),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 87.h,
+                    vertical: 44.v,
+                  ),
+                  decoration: AppDecoration.fillOnPrimary.copyWith(
+                    borderRadius: BorderRadiusStyle.roundedBorder13,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(height: 3.v),
+                      CustomImageView(
+                        margin: EdgeInsets.only(right: 40),
+                        imagePath: ImageConstant.imgRobotassistant,
+                        height: 110.v,
+                        width: 89.h,
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 37.v,
-                            width: 255.h,
-                            child: Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 1.h),
-                                    child: Text(
-                                      "Payments and cashback ",
-                                      style: theme.textTheme.titleSmall,
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Text(
-                                    "Cashback, payment and referral related issue",
-                                    style: CustomTextStyles.labelMedium11,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgForward,
-                            height: 21.adaptSize,
-                            width: 21.adaptSize,
-                            margin: EdgeInsets.only(
-                              left: 48.h,
-                              top: 7.v,
-                              bottom: 9.v,
-                            ),
-                          ),
-                        ],
+                      SizedBox(height: 21.v),
+                      Text(
+                        "No Order Found in Last 7 Days",
+                        style: CustomTextStyles.bodySmallOnPrimaryContainer_1,
                       ),
-                    ),
-                    SizedBox(height: 13.v),
-                    Divider(),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 16.h,
-                        top: 15.v,
-                        right: 11.h,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 38.v,
-                            width: 288.h,
-                            child: Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 1.h),
-                                    child: Text(
-                                      "Membership",
-                                      style: theme.textTheme.titleSmall,
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Text(
-                                    "View  your membership details and renew your plan",
-                                    style: CustomTextStyles.labelMedium11,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgForward,
-                            height: 21.adaptSize,
-                            width: 21.adaptSize,
-                            margin: EdgeInsets.only(
-                              left: 15.h,
-                              top: 7.v,
-                              bottom: 9.v,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 15.v),
-                    Divider(),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 16.h,
-                        top: 11.v,
-                        right: 11.h,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            height: 39.v,
-                            width: 174.h,
-                            child: Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(left: 2.h),
-                                    child: Text(
-                                      "Profile and Address",
-                                      style: theme.textTheme.titleSmall,
-                                    ),
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Text(
-                                    "Update your profile information",
-                                    style: CustomTextStyles.labelMedium11,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgForward,
-                            height: 21.adaptSize,
-                            width: 21.adaptSize,
-                            margin: EdgeInsets.symmetric(vertical: 9.v),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(height: 17.v),
-                    Divider(),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(16.h, 11.v, 11.h, 3.v),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            height: 38.v,
-                            width: 90.h,
-                            child: Stack(
-                              alignment: Alignment.bottomCenter,
-                              children: [
-                                Align(
-                                  alignment: Alignment.topLeft,
-                                  child: Text(
-                                    "App Guide",
-                                    style: theme.textTheme.titleSmall,
-                                  ),
-                                ),
-                                Align(
-                                  alignment: Alignment.bottomCenter,
-                                  child: Text(
-                                    "Troubleshooting",
-                                    style: CustomTextStyles.labelMedium11,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          CustomImageView(
-                            imagePath: ImageConstant.imgForward,
-                            height: 21.adaptSize,
-                            width: 21.adaptSize,
-                            margin: EdgeInsets.only(
-                              top: 7.v,
-                              bottom: 9.v,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  left: 10.h,
-                  top: 27.v,
-                ),
-                child: Text(
-                  "VIP Support",
-                  style: theme.textTheme.titleMedium,
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(
-                  top: 12.v,
-                  right: 7.h,
-                  bottom: 5.v,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: CustomOutlinedButton(
-                        height: 47.v,
-                        text: "Call Us",
-                        margin: EdgeInsets.only(right: 6.h),
-                        leftIcon: Container(
-                          margin: EdgeInsets.only(right: 6.h),
-                          child: CustomImageView(
-                            imagePath: ImageConstant.imgPhone,
-                            height: 27.v,
-                            width: 32.h,
-                          ),
+                SizedBox(height: 28.v),
+                Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 1.h,
+                    vertical: 14.v,
+                  ),
+                  decoration: AppDecoration.outlineBlueGray.copyWith(
+                    borderRadius: BorderRadiusStyle.roundedBorder13,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 16.h,
+                          right: 11.h,
                         ),
-                        buttonStyle: CustomButtonStyles.outlineBlueGrayTL8,
-                        buttonTextStyle: CustomTextStyles.titleSmallPrimary,
-                      ),
-                    ),
-                    Expanded(
-                      child: CustomOutlinedButton(
-                        height: 47.v,
-                        text: "Mail Us",
-                        margin: EdgeInsets.only(left: 6.h),
-                        leftIcon: Container(
-                          margin: EdgeInsets.only(right: 6.h),
-                          child: CustomImageView(
-                            imagePath: ImageConstant.imgMail,
-                            height: 32.adaptSize,
-                            width: 32.adaptSize,
-                          ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 37.v,
+                              width: 250.h,
+                              child: Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 1.h),
+                                      child: Text(
+                                        "Payments and cashback ",
+                                        style: theme.textTheme.titleSmall,
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top: 20.v),
+                                      child: Text(
+                                        "Cashback, payment and referral related issue",
+                                        style: CustomTextStyles.labelMedium11,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgForward,
+                              height: 21.adaptSize,
+                              width: 21.adaptSize,
+                              margin: EdgeInsets.only(
+                                left: 48.h,
+                                top: 7.v,
+                                bottom: 9.v,
+                              ),
+                            ),
+                          ],
                         ),
-                        buttonStyle: CustomButtonStyles.outlineBlueGrayTL8,
-                        buttonTextStyle: CustomTextStyles.titleSmallPrimary,
                       ),
-                    ),
-                  ],
+                      SizedBox(height: 15.v),
+                      Divider(),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 16.h,
+                          top: 11.v,
+                          right: 11.h,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              height: 39.v,
+                              width: 290.h,
+                              child: Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 2.h),
+                                      child: Text(
+                                        "Membership",
+                                        style: theme.textTheme.titleSmall,
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top: 20.v),
+                                      child: Text(
+                                        "View your membership details and renew your plan",
+                                        style: CustomTextStyles.labelMedium11,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgForward,
+                              height: 21.adaptSize,
+                              width: 21.adaptSize,
+                              margin: EdgeInsets.symmetric(vertical: 9.v),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 15.v),
+                      Divider(),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 16.h,
+                          top: 11.v,
+                          right: 11.h,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SizedBox(
+                              height: 39.v,
+                              width: 178.h,
+                              child: Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(left: 2.h),
+                                      child: Text(
+                                        "Profile and Address",
+                                        style: theme.textTheme.titleSmall,
+                                      ),
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top: 20.v),
+                                      child: Text(
+                                        "Update your profile information",
+                                        style: CustomTextStyles.labelMedium11,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgForward,
+                              height: 21.adaptSize,
+                              width: 21.adaptSize,
+                              margin: EdgeInsets.symmetric(vertical: 9.v),
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(height: 17.v),
+                      Divider(),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(16.h, 11.v, 11.h, 3.v),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SizedBox(
+                              height: 38.v,
+                              width: 90.h,
+                              child: Stack(
+                                alignment: Alignment.bottomCenter,
+                                children: [
+                                  Align(
+                                    alignment: Alignment.topLeft,
+                                    child: Text(
+                                      "App Guide",
+                                      style: theme.textTheme.titleSmall,
+                                    ),
+                                  ),
+                                  Align(
+                                    alignment: Alignment.bottomCenter,
+                                    child: Padding(
+                                      padding: EdgeInsets.only(top: 20.v),
+                                      child: Text(
+                                        "Troubleshooting",
+                                        style: CustomTextStyles.labelMedium11,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            CustomImageView(
+                              imagePath: ImageConstant.imgForward,
+                              height: 21.adaptSize,
+                              width: 21.adaptSize,
+                              margin: EdgeInsets.only(
+                                top: 7.v,
+                                bottom: 9.v,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            ],
+                Padding(
+                  padding: EdgeInsets.only(
+                    left: 10.h,
+                    top: 27.v,
+                  ),
+                  child: Text(
+                    "VIP Support",
+                    style: theme.textTheme.titleMedium,
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 12.v,
+                    right: 7.h,
+                    bottom: 5.v,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: CustomOutlinedButton(
+                          height: 47.v,
+                          text: "Call Us",
+                          margin: EdgeInsets.only(right: 6.h),
+                          leftIcon: Container(
+                            margin: EdgeInsets.only(right: 6.h),
+                            child: CustomImageView(
+                              imagePath: ImageConstant.imgPhone,
+                              height: 27.v,
+                              width: 32.h,
+                            ),
+                          ),
+                          buttonStyle: CustomButtonStyles.outlineBlueGrayTL8,
+                          buttonTextStyle: CustomTextStyles.titleSmallPrimary,
+                        ),
+                      ),
+                      Expanded(
+                        child: CustomOutlinedButton(
+                          height: 47.v,
+                          text: "Mail Us",
+                          margin: EdgeInsets.only(left: 6.h),
+                          leftIcon: Container(
+                            margin: EdgeInsets.only(right: 6.h),
+                            child: CustomImageView(
+                              imagePath: ImageConstant.imgMail,
+                              height: 32.adaptSize,
+                              width: 32.adaptSize,
+                            ),
+                          ),
+                          buttonStyle: CustomButtonStyles.outlineBlueGrayTL8,
+                          buttonTextStyle: CustomTextStyles.titleSmallPrimary,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

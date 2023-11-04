@@ -183,23 +183,25 @@ class ProductScreen extends StatelessWidget {
                                                         ]))
                                               ]))
                                         ])),
-                                CustomTextFormField(
-                                    controller: priceController,
-                                    margin: EdgeInsets.only(
-                                        left: 22.h, top: 15.v, right: 26.h),
-                                    hintText:
-                                        "You are saving ₹20 (30% OFF)With       VIP ",
-                                    textInputAction: TextInputAction.done,
-                                    suffix: Container(
-                                        margin: EdgeInsets.fromLTRB(
-                                            -40.h, 7.v, 30.h, 6.v),
+                                CustomElevatedButton(
+                                    height: 29.v,
+                                    width: 350.h,
+                                    text:
+                                        "You are saving ₹20 (30% OFF)With VIP     ",
+                                    margin:
+                                        EdgeInsets.only(top: 10.v, right: 20.h),
+                                    rightIcon: Container(
                                         child: CustomImageView(
                                             imagePath:
                                                 ImageConstant.imgKisspngemblem,
-                                            height: 16.v,
-                                            width: 18.h)),
-                                    suffixConstraints:
-                                        BoxConstraints(maxHeight: 29.v)),
+                                            height: 16.adaptSize,
+                                            width: 16.adaptSize)),
+                                    buttonStyle: CustomButtonStyles.none,
+                                    decoration: CustomButtonStyles
+                                        .gradientWhiteToYellow,
+                                    buttonTextStyle:
+                                        CustomTextStyles.labelLarge13,
+                                    alignment: Alignment.topRight),
                                 SizedBox(height: 19.v),
                                 Container(
                                     padding: EdgeInsets.symmetric(

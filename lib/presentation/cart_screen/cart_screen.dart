@@ -198,8 +198,8 @@ class _CartScreenState extends State<CartScreen> {
                           ),
                           Padding(
                             padding: EdgeInsets.only(top: 11.v, right: 33.h),
-                            child:
-                                Text("₹30", style: theme.textTheme.titleSmall),
+                            child: Text("₹${30 * quantity}",
+                                style: theme.textTheme.titleSmall),
                           ),
                         ],
                       ),

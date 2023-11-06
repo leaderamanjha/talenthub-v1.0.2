@@ -6,19 +6,11 @@ import 'package:talenthub/widgets/app_bar/appbar_subtitle_5.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_bottom_bar.dart';
 
-// ignore: must_be_immutable
 class VacationsScreen extends StatelessWidget {
-  VacationsScreen({Key? key})
-      : super(
-          key: key,
-        );
-
-  GlobalKey<NavigatorState> navigatorKey = GlobalKey();
+  VacationsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    mediaQueryData = MediaQuery.of(context);
-
     return SafeArea(
       child: Scaffold(
         appBar: CustomAppBar(
@@ -56,9 +48,14 @@ class VacationsScreen extends StatelessWidget {
                 style: CustomTextStyles.bodyMediumOnPrimaryContainer,
               ),
               SizedBox(height: 39.v),
-              Text(
-                "Add Vacation",
-                style: CustomTextStyles.bodyMediumPrimary,
+              GestureDetector(
+                onTap: () {
+                  onTapTxtAddVacation(context);
+                },
+                child: Text(
+                  "Add Vacation",
+                  style: CustomTextStyles.bodyMediumPrimary,
+                ),
               ),
               SizedBox(height: 5.v),
             ],
@@ -76,5 +73,9 @@ class VacationsScreen extends StatelessWidget {
       default:
         return DefaultWidget();
     }
+  }
+
+  onTapTxtAddVacation(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.addVacationScreen);
   }
 }

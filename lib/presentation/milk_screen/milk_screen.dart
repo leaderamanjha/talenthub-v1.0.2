@@ -766,20 +766,10 @@ class MilkScreen extends StatelessWidget {
                         ])))));
   }
 
-  /// Navigates to the cartScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the cartScreen.
   onTapFastcartone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.cartScreen);
   }
 
-  /// Navigates to the productScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the productScreen.
   onTapImgImage(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.productScreen);
   }
@@ -787,11 +777,9 @@ class MilkScreen extends StatelessWidget {
   onTapColumncurd(BuildContext context) {
     // TODO: implement Actions
   }
-
   onTapImgImageseven(BuildContext context) {
     // TODO: implement Actions
   }
-
   onTapTxtButtermilk(BuildContext context) {
     // TODO: implement Actions
   }

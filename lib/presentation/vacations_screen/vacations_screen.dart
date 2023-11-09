@@ -17,6 +17,9 @@ class VacationsScreen extends StatelessWidget {
           leadingWidth: 57.h,
           leading: AppbarImage(
             imagePath: ImageConstant.imgBack,
+            onTap: () {
+              onTapImgBack(context);
+            },
             margin: EdgeInsets.only(
               left: 30.h,
               top: 15.v,
@@ -77,5 +80,9 @@ class VacationsScreen extends StatelessWidget {
 
   onTapTxtAddVacation(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.addVacationScreen);
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.homeScreenContainerPage);
   }
 }

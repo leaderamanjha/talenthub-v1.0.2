@@ -48,6 +48,9 @@ class MilkScreen extends StatelessWidget {
                                     imagePath: ImageConstant.imgBack32x32,
                                     height: 32.adaptSize,
                                     width: 32.adaptSize,
+                                    onTap: () {
+                                      onTapImgBack(context);
+                                    },
                                     margin:
                                         EdgeInsets.symmetric(vertical: 4.v)),
                                 Container(
@@ -772,6 +775,10 @@ class MilkScreen extends StatelessWidget {
 
   onTapImgImage(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.productScreen);
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.homeScreenContainerPage);
   }
 
   onTapColumncurd(BuildContext context) {

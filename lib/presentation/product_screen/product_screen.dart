@@ -95,7 +95,7 @@ class ProductScreen extends StatelessWidget {
                                                         style: theme.textTheme
                                                             .bodySmall),
                                                     TextSpan(
-                                                        text: "60\n500ml",
+                                                        text: "30\n500ml",
                                                         style: theme.textTheme
                                                             .bodySmall!
                                                             .copyWith(
@@ -265,36 +265,21 @@ class ProductScreen extends StatelessWidget {
                               ]))))
                 ])),
             bottomNavigationBar: CustomElevatedButton(
-                text: "₹60",
+                text: " Proceed to Pay ₹30",
                 margin: EdgeInsets.only(left: 27.h, right: 26.h, bottom: 8.v),
                 buttonStyle: CustomButtonStyles.fillPrimary,
                 buttonTextStyle:
                     CustomTextStyles.titleSmallOnPrimarySemiBold)));
   }
 
-  /// Navigates to the milkScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the milkScreen.
   onTapBackone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.milkScreen);
   }
 
-  /// Navigates to the cartScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the cartScreen.
   onTapFastcartone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.cartScreen);
   }
 
-  /// Navigates to the personalDetailContainerScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the personalDetailContainerScreen.
   onTapMenuone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.personalDetailContainerScreen);
   }

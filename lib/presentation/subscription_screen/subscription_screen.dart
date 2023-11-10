@@ -93,6 +93,7 @@ class SubscriptionScreen extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.moreScreen);
   }
 
+
   onTapTxtExplore(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.milkScreen);
   }

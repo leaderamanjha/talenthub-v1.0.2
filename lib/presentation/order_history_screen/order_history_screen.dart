@@ -69,6 +69,9 @@ class OrderHistoryScreen extends StatelessWidget {
                 width: 145.h,
                 text: "EXPLORE PRODUCTS",
                 buttonTextStyle: CustomTextStyles.labelLargeOnPrimary12,
+                onTap: () {
+                  onTapTxtExplore(context);
+                },
               ),
               SizedBox(height: 5.v),
             ],
@@ -76,5 +79,9 @@ class OrderHistoryScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  onTapTxtExplore(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.milkScreen);
   }
 }

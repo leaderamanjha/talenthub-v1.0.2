@@ -21,6 +21,9 @@ class SubscriptionScreen extends StatelessWidget {
           leadingWidth: 57.h,
           leading: AppbarImage(
             imagePath: ImageConstant.imgBack,
+            onTap: () {
+              onTapImgBack(context);
+            },
             margin: EdgeInsets.only(
               left: 30.h,
               top: 15.v,
@@ -74,6 +77,9 @@ class SubscriptionScreen extends StatelessWidget {
                 width: 145.h,
                 text: "EXPLORE PRODUCTS",
                 buttonTextStyle: CustomTextStyles.labelLargeOnPrimary12,
+                onTap: () {
+                  onTapTxtExplore(context);
+                },
               ),
               SizedBox(height: 5.v),
             ],
@@ -81,5 +87,13 @@ class SubscriptionScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.moreScreen);
+  }
+
+  onTapTxtExplore(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.milkScreen);
   }
 }

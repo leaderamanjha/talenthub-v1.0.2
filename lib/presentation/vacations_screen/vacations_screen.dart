@@ -83,6 +83,6 @@ class VacationsScreen extends StatelessWidget {
   }
 
   onTapImgBack(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.homeScreenContainerPage);
+    Navigator.pushNamed(context, AppRoutes.moreScreen);
   }
 }

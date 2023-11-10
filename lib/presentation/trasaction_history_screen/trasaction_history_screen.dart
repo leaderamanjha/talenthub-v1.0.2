@@ -89,6 +89,9 @@ class TrasactionHistoryScreen extends StatelessWidget {
                       ),
                       actions: [
                         AppbarButton(
+                          onTap: () {
+                            onTapTxtMoney(context);
+                          },
                           margin: EdgeInsets.only(
                             left: 27.h,
                             top: 75.v,
@@ -140,6 +143,9 @@ class TrasactionHistoryScreen extends StatelessWidget {
                         bottom: 5.v,
                       ),
                       buttonTextStyle: CustomTextStyles.labelLargeOnPrimary12,
+                      onTap: () {
+                        onTapTxtExplore(context);
+                      },
                     ),
                   ],
                 ),
@@ -149,5 +155,13 @@ class TrasactionHistoryScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  onTapTxtExplore(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.milkScreen);
+  }
+
+  onTapTxtMoney(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.milkScreen);
   }
 }

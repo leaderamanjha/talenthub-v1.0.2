@@ -45,6 +45,9 @@ class TrasactionHistoryScreen extends StatelessWidget {
                                   AppbarImage3(
                                     imagePath: ImageConstant.imgBack,
                                     margin: EdgeInsets.only(bottom: 1.v),
+                                    onTap: () {
+                                      onTapImgBack(context);
+                                    },
                                   ),
                                   AppbarSubtitle5(
                                     text: "Transaction History",
@@ -89,9 +92,6 @@ class TrasactionHistoryScreen extends StatelessWidget {
                       ),
                       actions: [
                         AppbarButton(
-                          onTap: () {
-                            onTapTxtMoney(context);
-                          },
                           margin: EdgeInsets.only(
                             left: 27.h,
                             top: 75.v,
@@ -163,5 +163,9 @@ class TrasactionHistoryScreen extends StatelessWidget {
 
   onTapTxtMoney(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.milkScreen);
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.moreScreen);
   }
 }

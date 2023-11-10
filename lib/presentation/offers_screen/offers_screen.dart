@@ -22,6 +22,9 @@ class OffersScreen extends StatelessWidget {
           leadingWidth: 54.h,
           leading: AppbarImage(
             imagePath: ImageConstant.imgBack,
+            onTap: () {
+              onTapImgBack(context);
+            },
             margin: EdgeInsets.only(
               left: 27.h,
               top: 15.v,
@@ -134,5 +137,9 @@ class OffersScreen extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.moreScreen);
   }
 }

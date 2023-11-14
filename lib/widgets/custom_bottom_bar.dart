@@ -56,23 +56,11 @@ class CustomBottomBarState extends State<CustomBottomBar> {
   Widget build(BuildContext context) {
     return Container(
       height: 62.v,
-      margin: EdgeInsets.only(right: 9.h),
       decoration: BoxDecoration(
         color: appTheme.blueGray100,
         borderRadius: BorderRadius.vertical(
-          top: Radius.circular(13.h),
+          top: Radius.circular(5.h),
         ),
-        boxShadow: [
-          BoxShadow(
-            color: appTheme.black900.withOpacity(0.25),
-            spreadRadius: 2.h,
-            blurRadius: 2.h,
-            offset: Offset(
-              0,
-              -4,
-            ),
-          ),
-        ],
       ),
       child: BottomNavigationBar(
         backgroundColor: Colors.transparent,
@@ -95,8 +83,8 @@ class CustomBottomBarState extends State<CustomBottomBar> {
                   imagePath: bottomMenuList[index].isPng == true
                       ? bottomMenuList[index].icon
                       : null,
-                  height: 31.v,
-                  width: 29.h,
+                  height: 25.v,
+                  width: 25.h,
                 ),
                 Text(
                   bottomMenuList[index].title ?? "",
@@ -117,8 +105,8 @@ class CustomBottomBarState extends State<CustomBottomBar> {
                   imagePath: bottomMenuList[index].isPng == true
                       ? bottomMenuList[index].activeIcon
                       : null,
-                  height: 29.adaptSize,
-                  width: 29.adaptSize,
+                  height: 30.adaptSize,
+                  width: 30.adaptSize,
                 ),
                 Text(
                   bottomMenuList[index].title ?? "",

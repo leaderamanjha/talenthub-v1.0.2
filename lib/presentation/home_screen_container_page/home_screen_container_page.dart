@@ -324,7 +324,7 @@ class HomeScreenContainerPage extends StatelessWidget {
                                             children: [
                                           Card(
                                               clipBehavior: Clip.antiAlias,
-                                              elevation: 0,
+                                              elevation: 3,
                                               margin: EdgeInsets.all(0),
                                               color:
                                                   theme.colorScheme.onPrimary,
@@ -351,7 +351,7 @@ class HomeScreenContainerPage extends StatelessWidget {
                                                             child: Card(
                                                                 clipBehavior: Clip
                                                                     .antiAlias,
-                                                                elevation: 0,
+                                                                elevation: 3,
                                                                 margin:
                                                                     EdgeInsets
                                                                         .all(0),
@@ -444,7 +444,7 @@ class HomeScreenContainerPage extends StatelessWidget {
                                                       ]))),
                                           Card(
                                               clipBehavior: Clip.antiAlias,
-                                              elevation: 0,
+                                              elevation: 3,
                                               margin:
                                                   EdgeInsets.only(left: 29.h),
                                               color:
@@ -593,7 +593,7 @@ class HomeScreenContainerPage extends StatelessWidget {
                                         ])),
                                     Card(
                                         clipBehavior: Clip.antiAlias,
-                                        elevation: 0,
+                                        elevation: 3,
                                         margin: EdgeInsets.only(
                                             left: 26.h, top: 2.v),
                                         color: theme.colorScheme.onPrimary,
@@ -783,7 +783,7 @@ class HomeScreenContainerPage extends StatelessWidget {
                                                 ]))),
                                     Card(
                                         clipBehavior: Clip.antiAlias,
-                                        elevation: 0,
+                                        elevation: 3,
                                         margin: EdgeInsets.only(
                                             left: 29.h, top: 2.v),
                                         color: theme.colorScheme.onPrimary,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
+import 'package:talenthub/presentation/more_screen/more_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_button.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_3.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle.dart';
@@ -158,7 +160,25 @@ class TrasactionHistoryScreen extends StatelessWidget {
   }
 
   onTapTxtExplore(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.milkScreen);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => MilkScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 200),
+      ),
+    );
   }
 
   onTapTxtMoney(BuildContext context) {
@@ -166,6 +186,25 @@ class TrasactionHistoryScreen extends StatelessWidget {
   }
 
   onTapImgBack(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.moreScreen);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => MoreScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
   }
 }

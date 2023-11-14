@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/vacations_screen/vacations_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_1.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
@@ -21,6 +22,9 @@ class AddVacationScreen extends StatelessWidget {
           leadingWidth: 54.h,
           leading: AppbarImage(
             imagePath: ImageConstant.imgBack,
+            onTap: () {
+              onTapImgBack(context);
+            },
             margin: EdgeInsets.only(
               left: 27.h,
               top: 15.v,
@@ -160,6 +164,29 @@ class AddVacationScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => VacationsScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
       ),
     );
   }

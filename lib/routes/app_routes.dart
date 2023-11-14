@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:talenthub/presentation/product_screen/product3.dart';
 import 'package:talenthub/presentation/splash_screen/splash_screen.dart';
 import 'package:talenthub/presentation/offers_screen/offers_screen.dart';
 import 'package:talenthub/presentation/welcome_screen/welcome_screen.dart';
@@ -85,7 +86,7 @@ class AppRoutes {
   static const String walletScreen = '/wallet_screen';
   static const String product1 = '/product_screen/product1';
   static const String product2 = '/product_screen/product2';
-
+  static const String product3 = '/product_screen/product3';
   static const String moreScreen = '/more_screen';
 
   static const String applicationGuideScreen = '/application_guide_screen';
@@ -133,6 +134,7 @@ class AppRoutes {
     walletScreen: (context) => WalletScreen(),
     product1: (context) => Product1(),
     product2: (context) => Product2(),
+    product3: (context) => Product3(),
     moreScreen: (context) => MoreScreen(),
     applicationGuideScreen: (context) => ApplicationGuideScreen(),
     placeAnOrderScreen: (context) => PlaceAnOrderScreen(),

@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
+import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
+import 'package:talenthub/presentation/product_screen/product1.dart';
+import 'package:talenthub/presentation/product_screen/product2.dart';
+import 'package:talenthub/presentation/product_screen/product3.dart';
+import 'package:talenthub/presentation/product_screen/product_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_1.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
@@ -98,7 +104,7 @@ class MilkScreen extends StatelessWidget {
                                         alignment: Alignment.topLeft,
                                         margin: EdgeInsets.only(
                                             left: 83.h, top: 266.v),
-                                             onTap: () {
+                                        onTap: () {
                                           onTapImgImage1(context);
                                         }),
                                     CustomImageView(
@@ -108,7 +114,7 @@ class MilkScreen extends StatelessWidget {
                                         alignment: Alignment.bottomLeft,
                                         margin: EdgeInsets.only(
                                             left: 83.h, bottom: 268.v),
-                                             onTap: () {
+                                        onTap: () {
                                           onTapImgImage2(context);
                                         }),
                                     CustomImageView(
@@ -117,7 +123,10 @@ class MilkScreen extends StatelessWidget {
                                         width: 96.h,
                                         alignment: Alignment.bottomLeft,
                                         margin: EdgeInsets.only(
-                                            left: 83.h, bottom: 66.v)),
+                                            left: 83.h, bottom: 66.v),
+                                        onTap: () {
+                                          onTapImgImage3(context);
+                                        }),
                                     Align(
                                         alignment: Alignment.topRight,
                                         child: Padding(
@@ -776,21 +785,129 @@ class MilkScreen extends StatelessWidget {
   }
 
   onTapFastcartone(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.cartScreen);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => CartScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(0.0, -1.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
   }
 
   onTapImgImage(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.productScreen);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => ProductScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = 0.0;
+          const end = 1.0;
+          var tween = Tween(begin: begin, end: end);
+          var opacityAnimation = animation1.drive(tween);
+          return ScaleTransition(
+            scale: opacityAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 110),
+      ),
+    );
   }
-   onTapImgImage1(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.product1);
+
+  onTapImgImage1(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => Product1(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = 0.0;
+          const end = 1.0;
+          var tween = Tween(begin: begin, end: end);
+          var opacityAnimation = animation1.drive(tween);
+          return ScaleTransition(
+            scale: opacityAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 110),
+      ),
+    );
   }
+
   onTapImgImage2(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.product2);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => Product2(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = 0.0;
+          const end = 1.0;
+          var tween = Tween(begin: begin, end: end);
+          var opacityAnimation = animation1.drive(tween);
+          return ScaleTransition(
+            scale: opacityAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 110),
+      ),
+    );
+  }
+
+  onTapImgImage3(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => Product3(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = 0.0;
+          const end = 1.0;
+          var tween = Tween(begin: begin, end: end);
+          var opacityAnimation = animation1.drive(tween);
+          return ScaleTransition(
+            scale: opacityAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 110),
+      ),
+    );
   }
 
   onTapImgBack(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.homeScreenContainerPage);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) =>
+            HomeScreenContainerPage(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
   }
 
   onTapColumncurd(BuildContext context) {

@@ -8,8 +8,8 @@ import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_text_form_field.dart';
 
 // ignore_for_file: must_be_immutable
-class Product1 extends StatelessWidget {
-  Product1({Key? key}) : super(key: key);
+class Product2 extends StatelessWidget {
+  Product2({Key? key}) : super(key: key);
 
   TextEditingController priceController = TextEditingController();
 

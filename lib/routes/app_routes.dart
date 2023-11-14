@@ -31,6 +31,8 @@ import 'package:talenthub/presentation/view_my_payment_history_screen/view_my_pa
 import 'package:talenthub/presentation/view_my_bill_screen/view_my_bill_screen.dart';
 import 'package:talenthub/presentation/view_current_offers_screen/view_current_offers_screen.dart';
 import 'package:talenthub/presentation/app_navigation_screen/app_navigation_screen.dart';
+import 'package:talenthub/presentation/product_screen/product2.dart';
+import 'package:talenthub/presentation/product_screen/product1.dart';
 
 class AppRoutes {
   static const String splashScreen = '/splash_screen';
@@ -81,6 +83,8 @@ class AppRoutes {
       '/personal_detail_container_screen';
 
   static const String walletScreen = '/wallet_screen';
+  static const String product1 = '/product_screen/product1';
+  static const String product2 = '/product_screen/product2';
 
   static const String moreScreen = '/more_screen';
 
@@ -127,6 +131,8 @@ class AppRoutes {
     editVacationScreen: (context) => EditVacationScreen(),
     personalDetailContainerScreen: (context) => PersonalDetailContainerScreen(),
     walletScreen: (context) => WalletScreen(),
+    product1: (context) => Product1(),
+    product2: (context) => Product2(),
     moreScreen: (context) => MoreScreen(),
     applicationGuideScreen: (context) => ApplicationGuideScreen(),
     placeAnOrderScreen: (context) => PlaceAnOrderScreen(),

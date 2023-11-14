@@ -276,6 +276,7 @@ class ProductScreen extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.milkScreen);
   }
 
+
   onTapFastcartone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.cartScreen);
   }

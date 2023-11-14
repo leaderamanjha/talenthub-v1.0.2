@@ -6,13 +6,12 @@ import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
-
 // ignore: unused_import
 import 'package:talenthub/widgets/custom_text_form_field.dart';
 
 // ignore_for_file: must_be_immutable
-class Product1 extends StatelessWidget {
-  Product1({Key? key}) : super(key: key);
+class Product3 extends StatelessWidget {
+  Product3({Key? key}) : super(key: key);
 
   TextEditingController priceController = TextEditingController();
 
@@ -62,7 +61,7 @@ class Product1 extends StatelessWidget {
                             ]),
                         SizedBox(height: 50.v),
                         CustomImageView(
-                            imagePath: ImageConstant.imgRectangle1886x100,
+                            imagePath: ImageConstant.imgRectangle62,
                             height: 153.v,
                             width: 222.h),
                         SizedBox(height: 58.v)
@@ -89,7 +88,7 @@ class Product1 extends StatelessWidget {
                                               child: RichText(
                                                   text: TextSpan(children: [
                                                     TextSpan(
-                                                        text: "Milk Full Fat\n",
+                                                        text: "Milk Bottle\n",
                                                         style: CustomTextStyles
                                                             .titleSmallBold_1),
                                                     TextSpan(
@@ -296,7 +295,7 @@ class Product1 extends StatelessWidget {
     );
   }
 
-  onTapFastcartone(BuildContext context) {
+ onTapFastcartone(BuildContext context) {
     Navigator.push(
       context,
       PageRouteBuilder(

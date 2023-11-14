@@ -8,6 +8,8 @@ import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
 import 'package:talenthub/presentation/more_screen/more_screen.dart';
 import 'package:talenthub/presentation/offers_screen/offers_screen.dart';
 import 'package:talenthub/presentation/order_history_screen/order_history_screen.dart';
+import 'package:talenthub/presentation/product_screen/product1.dart';
+import 'package:talenthub/presentation/product_screen/product2.dart';
 import 'package:talenthub/presentation/product_screen/product_screen.dart';
 import 'package:talenthub/presentation/referal_screen/referal_screen.dart';
 import 'package:talenthub/presentation/subscription_screen/subscription_screen.dart';
@@ -101,7 +103,10 @@ class HomeScreenContainer1Screen extends StatelessWidget {
         return ProductScreen();
       case AppRoutes.addVacationScreen:
         return AddVacationScreen();
-
+      case AppRoutes.product1:
+        return Product1();
+      case AppRoutes.product2:
+        return Product2();
       default:
         return DefaultWidget();
     }

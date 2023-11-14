@@ -4,6 +4,7 @@ import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
+
 // ignore: unused_import
 import 'package:talenthub/widgets/custom_text_form_field.dart';
 

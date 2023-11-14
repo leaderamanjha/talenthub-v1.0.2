@@ -97,14 +97,20 @@ class MilkScreen extends StatelessWidget {
                                         width: 96.h,
                                         alignment: Alignment.topLeft,
                                         margin: EdgeInsets.only(
-                                            left: 83.h, top: 266.v)),
+                                            left: 83.h, top: 266.v),
+                                             onTap: () {
+                                          onTapImgImage1(context);
+                                        }),
                                     CustomImageView(
                                         imagePath: ImageConstant.imgRectangle55,
                                         height: 88.v,
                                         width: 96.h,
                                         alignment: Alignment.bottomLeft,
                                         margin: EdgeInsets.only(
-                                            left: 83.h, bottom: 268.v)),
+                                            left: 83.h, bottom: 268.v),
+                                             onTap: () {
+                                          onTapImgImage2(context);
+                                        }),
                                     CustomImageView(
                                         imagePath: ImageConstant.imgRectangle62,
                                         height: 88.v,
@@ -775,6 +781,12 @@ class MilkScreen extends StatelessWidget {
 
   onTapImgImage(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.productScreen);
+  }
+   onTapImgImage1(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.product1);
+  }
+  onTapImgImage2(BuildContext context) {
+    Navigator.pushNamed(context, AppRoutes.product2);
   }
 
   onTapImgBack(BuildContext context) {

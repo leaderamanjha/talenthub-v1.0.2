@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
 import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_6.dart';
@@ -455,38 +456,36 @@ class MoreScreen extends StatelessWidget {
     }
   }
 
-  /// Navigates to the cartScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the cartScreen.
   onTapFastcartone(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.cartScreen);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => CartScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(0.0, -1.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
   }
 
-  /// Navigates to the homeScreenContainer1Screen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the homeScreenContainer1Screen.
   onTapImgBoxone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.milkScreen);
   }
 
-  /// Navigates to the subscriptionScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the subscriptionScreen.
   onTapImgNaturaluserinte(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.subscriptionScreen);
   }
 
-  /// Navigates to the vacationsScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the vacationsScreen.
   onTapImgHolidayone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.vacationsScreen);
   }
@@ -495,38 +494,18 @@ class MoreScreen extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.milkScreen);
   }
 
-  /// Navigates to the subscriptionScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the subscriptionScreen.
   onTapTxtMysubscriptions(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.subscriptionScreen);
   }
 
-  /// Navigates to the vacationsScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the vacationsScreen.
   onTapTxtSetvacation(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.vacationsScreen);
   }
 
-  /// Navigates to the trasactionHistoryScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the trasactionHistoryScreen.
   onTapImgTransactionone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.trasactionHistoryScreen);
   }
 
-  /// Navigates to the orderHistoryScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the orderHistoryScreen.
   onTapTxtOrderhistory(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.orderHistoryScreen);
   }
@@ -535,29 +514,14 @@ class MoreScreen extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.orderHistoryScreen);
   }
 
-  /// Navigates to the trasactionHistoryScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the trasactionHistoryScreen.
   onTapTxtTransactions(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.trasactionHistoryScreen);
   }
 
-  /// Navigates to the referalScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the referalScreen.
   onTapTxtRefer(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.referalScreen);
   }
 
-  /// Navigates to the referalScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the referalScreen.
   onTapImgShareone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.referalScreen);
   }
@@ -570,11 +534,6 @@ class MoreScreen extends StatelessWidget {
     Navigator.pushNamed(context, AppRoutes.offersScreen);
   }
 
-  /// Navigates to the helpScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the helpScreen.
   onTapRowhelpone(BuildContext context) {
     Navigator.pushNamed(context, AppRoutes.helpScreen);
   }

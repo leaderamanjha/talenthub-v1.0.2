@@ -88,12 +88,12 @@ class AppDecoration {
         color: appTheme.gray10001,
         boxShadow: [
           BoxShadow(
-            color: appTheme.black900.withOpacity(0.25),
-            spreadRadius: 2.h,
-            blurRadius: 2.h,
+            color: appTheme.black900.withOpacity(0.10),
+            spreadRadius: 1.h,
+            blurRadius: 1.h,
             offset: Offset(
               0,
-              4,
+              2,
             ),
           ),
         ],

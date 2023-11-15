@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
+import 'package:talenthub/presentation/help_screen/help_screen.dart';
 import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_6.dart';
@@ -535,7 +536,23 @@ class MoreScreen extends StatelessWidget {
   }
 
   onTapRowhelpone(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.helpScreen);
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) => HelpScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
+    );
   }
 
   onTapRowlegel(BuildContext context) {

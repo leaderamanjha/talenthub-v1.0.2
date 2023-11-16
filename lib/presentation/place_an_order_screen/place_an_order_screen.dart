@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/application_guide_screen/application_guide_screen.dart';
+import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
+import 'package:talenthub/presentation/subscription_screen/subscription_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_1.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
@@ -68,7 +70,7 @@ class PlaceAnOrderScreen extends StatelessWidget {
                           ),
                           TextSpan(
                             text:
-                                "Click on a specific date on calendar \nAdd quantity for desired product(s) \nClick on update and your delivery is scheduled",
+                                "● Click on a specific date on calendar \n● Add quantity for desired product(s) \n● Click on update and your delivery is \n    scheduled",
                             style: CustomTextStyles.titleSmall14.copyWith(
                               height: 1.68,
                             ),
@@ -97,16 +99,21 @@ class PlaceAnOrderScreen extends StatelessWidget {
                       decoration: AppDecoration.green.copyWith(
                         borderRadius: BorderRadiusStyle.roundedBorder10,
                       ),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(height: 3.v),
-                          Text(
-                            "Place an order for next day? ",
-                            style: CustomTextStyles.titleMediumOnPrimary,
-                          ),
-                        ],
+                      child: GestureDetector(
+                        onTap: () {
+                          onTapOrderPlace(context);
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(height: 3.v),
+                            Text(
+                              "Place an order for next day? ",
+                              style: CustomTextStyles.titleMediumOnPrimary,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -122,7 +129,7 @@ class PlaceAnOrderScreen extends StatelessWidget {
                           ),
                           TextSpan(
                             text:
-                                "Click on menu \nGo to milk plan (Subscriptions)\nSelect the desired product \nSelect the quantity and the frequency (Daily/ Alternate Days/Specify days)\nSelect the duration (it is optional) \nClick on Done and your delivery will be scheduled accordingly ",
+                                "● Click on menu \n● Go to milk plan (Subscriptions)\n● Select the desired product \n● Select the quantity and the frequency (Daily/ \n    Alternate Days/Specify days)\n● Select the duration (it is optional) \n● Click on Done and your delivery will be \n    scheduled accordingly ",
                             style: CustomTextStyles.titleSmall14.copyWith(
                               height: 1.64,
                             ),
@@ -134,6 +141,9 @@ class PlaceAnOrderScreen extends StatelessWidget {
                   ),
                   CustomElevatedButton(
                     text: "Add Subscription?",
+                    onTap: () {
+                      onTapSubscription(context);
+                    },
                     margin: EdgeInsets.only(
                       left: 33.h,
                       top: 16.v,
@@ -149,7 +159,7 @@ class PlaceAnOrderScreen extends StatelessWidget {
                       right: 15.h,
                     ),
                     child: Text(
-                      "Note\n\nTo ensure your delivery , we suggest to place/ update order before 8:00 PM\nKindly mark your location appropriately for uninterrupted deliveries\nYou can check the upcoming order on the calendar (home) screen which will be marked blue",
+                      "Note\n\n● To ensure your delivery , we suggest to \n    place / update order before 8:00 PM\n● Kindly mark your location appropriately for \n    uninterrupted deliveries\n● You can check the upcoming order on the \n    calendar (home) screen which will be \n    marked blue",
                       maxLines: 9,
                       overflow: TextOverflow.ellipsis,
                       style: CustomTextStyles.titleSmall14_1.copyWith(
@@ -176,6 +186,50 @@ class PlaceAnOrderScreen extends StatelessWidget {
           const begin = Offset(-1.0, 0.0);
           const end = Offset.zero;
 
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
+  }
+
+  onTapOrderPlace(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => MilkScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
+  }
+
+  onTapSubscription(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => SubscriptionScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
           const curve = Curves.easeInOut;
           var tween =
               Tween(begin: begin, end: end).chain(CurveTween(curve: curve));

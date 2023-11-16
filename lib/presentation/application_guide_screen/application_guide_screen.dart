@@ -190,4 +190,5 @@ class ApplicationGuideScreen extends StatelessWidget {
       ),
     );
   }
+  
 }

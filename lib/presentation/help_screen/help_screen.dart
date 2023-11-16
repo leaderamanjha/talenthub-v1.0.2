@@ -261,7 +261,7 @@ class HelpScreen extends StatelessWidget {
                         padding: EdgeInsets.fromLTRB(16.h, 11.v, 11.h, 3.v),
                         child: GestureDetector(
                           onTap: () {
-                            onTapRowProfile(context);
+                            onTapRowAppGuide(context);
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -396,27 +396,23 @@ class HelpScreen extends StatelessWidget {
     );
   }
 
-  onTapRowProfile(BuildContext context) {
+  onTapRowAppGuide(BuildContext context) {
     Navigator.push(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) =>
+        pageBuilder: (context, animation, secondaryAnimation) =>
             ApplicationGuideScreen(),
-        transitionsBuilder: (context, animation1, animation2, child) {
-          const begin = Offset(-1.0, 0.0);
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
           const end = Offset.zero;
-
-
           const curve = Curves.easeInOut;
+
           var tween =
               Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-          var offsetAnimation = animation1.drive(tween);
-          return SlideTransition(
-            position: offsetAnimation,
-            child: child,
-          );
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
         },
-        transitionDuration: Duration(milliseconds: 300),
       ),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/help_screen/help_screen.dart';
+import 'package:talenthub/presentation/place_an_order_screen/place_an_order_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_1.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
@@ -58,9 +59,14 @@ class ApplicationGuideScreen extends StatelessWidget {
                 decoration: AppDecoration.fillOnPrimary.copyWith(
                   borderRadius: BorderRadiusStyle.roundedBorder4,
                 ),
-                child: Text(
-                  "Place an order                                                            ",
-                  style: theme.textTheme.titleMedium,
+                child: GestureDetector(
+                  onTap: () {
+                    onTapPlaceOrder(context);
+                  },
+                  child: Text(
+                    "Place an order                                                            ",
+                    style: theme.textTheme.titleMedium,
+                  ),
                 ),
               ),
               SizedBox(height: 6.v),
@@ -160,6 +166,27 @@ class ApplicationGuideScreen extends StatelessWidget {
           );
         },
         transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
+  }
+
+  onTapPlaceOrder(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            PlaceAnOrderScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
       ),
     );
   }

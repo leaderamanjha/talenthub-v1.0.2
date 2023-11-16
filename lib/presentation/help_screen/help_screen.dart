@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/application_guide_screen/application_guide_screen.dart';
 import 'package:talenthub/presentation/more_screen/more_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_5.dart';
@@ -258,46 +259,51 @@ class HelpScreen extends StatelessWidget {
                       Divider(),
                       Padding(
                         padding: EdgeInsets.fromLTRB(16.h, 11.v, 11.h, 3.v),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 38.v,
-                              width: 90.h,
-                              child: Stack(
-                                alignment: Alignment.bottomCenter,
-                                children: [
-                                  Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Text(
-                                      "App Guide",
-                                      style: theme.textTheme.titleSmall,
-                                    ),
-                                  ),
-                                  Align(
-                                    alignment: Alignment.bottomCenter,
-                                    child: Padding(
-                                      padding: EdgeInsets.only(top: 20.v),
+                        child: GestureDetector(
+                          onTap: () {
+                            onTapRowProfile(context);
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 38.v,
+                                width: 90.h,
+                                child: Stack(
+                                  alignment: Alignment.bottomCenter,
+                                  children: [
+                                    Align(
+                                      alignment: Alignment.topLeft,
                                       child: Text(
-                                        "Troubleshooting",
-                                        style: CustomTextStyles.labelMedium11,
+                                        "App Guide",
+                                        style: theme.textTheme.titleSmall,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                    Align(
+                                      alignment: Alignment.bottomCenter,
+                                      child: Padding(
+                                        padding: EdgeInsets.only(top: 20.v),
+                                        child: Text(
+                                          "Troubleshooting",
+                                          style: CustomTextStyles.labelMedium11,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            CustomImageView(
-                              imagePath: ImageConstant.imgForward,
-                              height: 21.adaptSize,
-                              width: 21.adaptSize,
-                              margin: EdgeInsets.only(
-                                top: 7.v,
-                                bottom: 9.v,
+                              CustomImageView(
+                                imagePath: ImageConstant.imgForward,
+                                height: 21.adaptSize,
+                                width: 21.adaptSize,
+                                margin: EdgeInsets.only(
+                                  top: 7.v,
+                                  bottom: 9.v,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ],
@@ -375,6 +381,31 @@ class HelpScreen extends StatelessWidget {
         transitionsBuilder: (context, animation1, animation2, child) {
           const begin = Offset(-1.0, 0.0);
           const end = Offset.zero;
+
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
+  }
+
+  onTapRowProfile(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) =>
+            ApplicationGuideScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+
 
           const curve = Curves.easeInOut;
           var tween =

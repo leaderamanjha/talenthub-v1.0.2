@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/help_screen/help_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_1.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
@@ -20,6 +21,9 @@ class ApplicationGuideScreen extends StatelessWidget {
           leadingWidth: 48.h,
           leading: AppbarImage(
             imagePath: ImageConstant.imgBack,
+            onTap: () {
+              onTapImgBack(context);
+            },
             margin: EdgeInsets.only(
               left: 21.h,
               top: 15.v,
@@ -55,7 +59,7 @@ class ApplicationGuideScreen extends StatelessWidget {
                   borderRadius: BorderRadiusStyle.roundedBorder4,
                 ),
                 child: Text(
-                  "Place an order",
+                  "Place an order                                                            ",
                   style: theme.textTheme.titleMedium,
                 ),
               ),
@@ -69,49 +73,7 @@ class ApplicationGuideScreen extends StatelessWidget {
                   borderRadius: BorderRadiusStyle.roundedBorder4,
                 ),
                 child: Text(
-                  "Add a vacation",
-                  style: theme.textTheme.titleMedium,
-                ),
-              ),
-              SizedBox(height: 6.v),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 27.h,
-                  vertical: 12.v,
-                ),
-                decoration: AppDecoration.fillOnPrimary.copyWith(
-                  borderRadius: BorderRadiusStyle.roundedBorder4,
-                ),
-                child: Text(
-                  "Recharge my wallet",
-                  style: theme.textTheme.titleMedium,
-                ),
-              ),
-              SizedBox(height: 6.v),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 27.h,
-                  vertical: 13.v,
-                ),
-                decoration: AppDecoration.fillOnPrimary.copyWith(
-                  borderRadius: BorderRadiusStyle.roundedBorder4,
-                ),
-                child: Text(
-                  "Payment History",
-                  style: theme.textTheme.titleMedium,
-                ),
-              ),
-              SizedBox(height: 6.v),
-              Container(
-                padding: EdgeInsets.symmetric(
-                  horizontal: 27.h,
-                  vertical: 13.v,
-                ),
-                decoration: AppDecoration.fillOnPrimary.copyWith(
-                  borderRadius: BorderRadiusStyle.roundedBorder4,
-                ),
-                child: Text(
-                  "View my bill",
+                  "Add a vacation                                                           ",
                   style: theme.textTheme.titleMedium,
                 ),
               ),
@@ -125,7 +87,49 @@ class ApplicationGuideScreen extends StatelessWidget {
                   borderRadius: BorderRadiusStyle.roundedBorder4,
                 ),
                 child: Text(
-                  "View current offers",
+                  "Recharge my wallet                                                      ",
+                  style: theme.textTheme.titleMedium,
+                ),
+              ),
+              SizedBox(height: 6.v),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 27.h,
+                  vertical: 14.v,
+                ),
+                decoration: AppDecoration.fillOnPrimary.copyWith(
+                  borderRadius: BorderRadiusStyle.roundedBorder4,
+                ),
+                child: Text(
+                  "Payment History                                                        ",
+                  style: theme.textTheme.titleMedium,
+                ),
+              ),
+              SizedBox(height: 6.v),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 27.h,
+                  vertical: 14.v,
+                ),
+                decoration: AppDecoration.fillOnPrimary.copyWith(
+                  borderRadius: BorderRadiusStyle.roundedBorder4,
+                ),
+                child: Text(
+                  "View my bill                                                              ",
+                  style: theme.textTheme.titleMedium,
+                ),
+              ),
+              SizedBox(height: 6.v),
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 27.h,
+                  vertical: 14.v,
+                ),
+                decoration: AppDecoration.fillOnPrimary.copyWith(
+                  borderRadius: BorderRadiusStyle.roundedBorder4,
+                ),
+                child: Text(
+                  "View current offers                                                    ",
                   style: theme.textTheme.titleMedium,
                 ),
               ),
@@ -133,6 +137,29 @@ class ApplicationGuideScreen extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => HelpScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
       ),
     );
   }

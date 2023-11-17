@@ -48,8 +48,8 @@ class CustomButtonStyles {
   static BoxDecoration get gradientGreenAToYellowADecoration => BoxDecoration(
         borderRadius: BorderRadius.circular(11.h),
         gradient: LinearGradient(
-          begin: Alignment(-0.50, 0),
-          end: Alignment(0.50, 0),
+          begin: Alignment(-0.98, 0),
+          end: Alignment(0.98, 0),
           colors: [
             appTheme.greenA700,
             appTheme.yellowA700,

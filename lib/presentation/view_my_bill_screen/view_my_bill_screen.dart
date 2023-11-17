@@ -74,7 +74,7 @@ class ViewMyBillScreen extends StatelessWidget {
                       top: 22.v,
                     ),
                     padding: EdgeInsets.symmetric(
-                      horizontal: 85.h,
+                      horizontal: 80.h,
                       vertical: 7.v,
                     ),
                     decoration: AppDecoration.green.copyWith(

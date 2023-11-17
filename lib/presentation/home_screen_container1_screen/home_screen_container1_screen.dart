@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/add_vacation_one_screen/add_vacation_one_screen.dart';
 import 'package:talenthub/presentation/add_vacation_screen/add_vacation_screen.dart';
 import 'package:talenthub/presentation/application_guide_screen/application_guide_screen.dart';
 import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
@@ -116,6 +117,8 @@ class HomeScreenContainer1Screen extends StatelessWidget {
         return ApplicationGuideScreen();
       case AppRoutes.placeAnOrderScreen:
         return PlaceAnOrderScreen();
+      case AppRoutes.addVacationOneScreen:
+        return AddVacationOneScreen();
       default:
         return DefaultWidget();
     }

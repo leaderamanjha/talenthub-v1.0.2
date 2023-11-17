@@ -3,6 +3,9 @@ import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/add_vacation_one_screen/add_vacation_one_screen.dart';
 import 'package:talenthub/presentation/help_screen/help_screen.dart';
 import 'package:talenthub/presentation/place_an_order_screen/place_an_order_screen.dart';
+import 'package:talenthub/presentation/recharge_my_wallet_screen/recharge_my_wallet_screen.dart';
+import 'package:talenthub/presentation/view_my_bill_screen/view_my_bill_screen.dart';
+import 'package:talenthub/presentation/view_my_payment_history_screen/view_my_payment_history_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_1.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
@@ -98,9 +101,14 @@ class ApplicationGuideScreen extends StatelessWidget {
                 decoration: AppDecoration.fillOnPrimary.copyWith(
                   borderRadius: BorderRadiusStyle.roundedBorder4,
                 ),
-                child: Text(
-                  "Recharge my wallet                                                      ",
-                  style: theme.textTheme.titleMedium,
+                child: GestureDetector(
+                  onTap: () {
+                    onTapRecharge(context);
+                  },
+                  child: Text(
+                    "Recharge my wallet                                                      ",
+                    style: theme.textTheme.titleMedium,
+                  ),
                 ),
               ),
               SizedBox(height: 6.v),
@@ -112,9 +120,14 @@ class ApplicationGuideScreen extends StatelessWidget {
                 decoration: AppDecoration.fillOnPrimary.copyWith(
                   borderRadius: BorderRadiusStyle.roundedBorder4,
                 ),
-                child: Text(
-                  "Payment History                                                        ",
-                  style: theme.textTheme.titleMedium,
+                child: GestureDetector(
+                  onTap: () {
+                    onPaymentHistory(context);
+                  },
+                  child: Text(
+                    "Payment History                                                        ",
+                    style: theme.textTheme.titleMedium,
+                  ),
                 ),
               ),
               SizedBox(height: 6.v),
@@ -126,9 +139,14 @@ class ApplicationGuideScreen extends StatelessWidget {
                 decoration: AppDecoration.fillOnPrimary.copyWith(
                   borderRadius: BorderRadiusStyle.roundedBorder4,
                 ),
-                child: Text(
-                  "View my bill                                                              ",
-                  style: theme.textTheme.titleMedium,
+                child: GestureDetector(
+                  onTap: () {
+                    onTapViewMyBill(context);
+                  },
+                  child: Text(
+                    "View my bill                                                              ",
+                    style: theme.textTheme.titleMedium,
+                  ),
                 ),
               ),
               SizedBox(height: 6.v),
@@ -203,6 +221,69 @@ class ApplicationGuideScreen extends StatelessWidget {
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             AddVacationOneScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
+    );
+  }
+
+  onTapRecharge(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            RechargeMyWalletScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
+    );
+  }
+
+  onPaymentHistory(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ViewMyPaymentHistoryScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
+    );
+  }
+
+  onTapViewMyBill(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ViewMyBillScreen(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;

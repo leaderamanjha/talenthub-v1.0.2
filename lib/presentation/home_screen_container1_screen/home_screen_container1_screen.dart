@@ -15,11 +15,14 @@ import 'package:talenthub/presentation/product_screen/product1.dart';
 import 'package:talenthub/presentation/product_screen/product2.dart';
 import 'package:talenthub/presentation/product_screen/product3.dart';
 import 'package:talenthub/presentation/product_screen/product_screen.dart';
+import 'package:talenthub/presentation/recharge_my_wallet_screen/recharge_my_wallet_screen.dart';
 import 'package:talenthub/presentation/referal_screen/referal_screen.dart';
 import 'package:talenthub/presentation/subscription_screen/subscription_screen.dart';
 import 'package:talenthub/presentation/t_c_referal_screen/t_c_referal_screen.dart';
 import 'package:talenthub/presentation/trasaction_history_screen/trasaction_history_screen.dart';
 import 'package:talenthub/presentation/vacations_screen/vacations_screen.dart';
+import 'package:talenthub/presentation/view_my_bill_screen/view_my_bill_screen.dart';
+import 'package:talenthub/presentation/view_my_payment_history_screen/view_my_payment_history_screen.dart';
 import 'package:talenthub/presentation/wallet_screen/wallet_screen.dart';
 import 'package:talenthub/presentation/welcome_screen/welcome_screen.dart';
 import 'package:talenthub/widgets/custom_bottom_bar.dart';
@@ -119,6 +122,12 @@ class HomeScreenContainer1Screen extends StatelessWidget {
         return PlaceAnOrderScreen();
       case AppRoutes.addVacationOneScreen:
         return AddVacationOneScreen();
+      case AppRoutes.rechargeMyWalletScreen:
+        return RechargeMyWalletScreen();
+      case AppRoutes.viewMyPaymentHistoryScreen:
+        return ViewMyPaymentHistoryScreen();
+      case AppRoutes.viewMyBillScreen:
+        return ViewMyBillScreen();
       default:
         return DefaultWidget();
     }

@@ -496,7 +496,7 @@ class MilkScreen extends StatelessWidget {
                                         height: 29.v,
                                         width: 299.h,
                                         text:
-                                            "You are saving ₹20 (30% OFF)With       VIP ",
+                                            "You are saving ₹20 (30% OFF)With VIP ",
                                         margin: EdgeInsets.only(
                                             top: 137.v, right: 7.h),
                                         rightIcon: Container(

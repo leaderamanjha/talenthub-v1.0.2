@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/application_guide_screen/application_guide_screen.dart';
+import 'package:talenthub/presentation/wallet_screen/wallet_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_1.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
@@ -21,6 +23,9 @@ class RechargeMyWalletScreen extends StatelessWidget {
           leadingWidth: 48.h,
           leading: AppbarImage(
             imagePath: ImageConstant.imgBack,
+            onTap: () {
+              onTapImgBack(context);
+            },
             margin: EdgeInsets.only(
               left: 21.h,
               top: 15.v,
@@ -56,7 +61,7 @@ class RechargeMyWalletScreen extends StatelessWidget {
                           ),
                           TextSpan(
                             text:
-                                "Go to \"My Wallet\" tab from the side menu or tap on \"wallet\" icon at the top right corner on home page \nIt will provide you the funds available in your wallet along with the estimated monthly bill \nYou can select any option from recharge list with the respective Recharge pack available on the amount or you can manually enter the amount\nSelect the payment method \"card/net banking/wallet\" to make the payment \r\n",
+                                "● Go to \"My Wallet\" tab from the side menu or \n    tap on \"wallet\" icon at the top right corner on \n    home page \n● It will provide you the funds available in your \n    wallet along with the estimated monthly bill \n● You can select any option from recharge list \n    with the respective Recharge pack available \n    on the amount or you can manually enter \n    the amount\n● Select the payment method \"card/net \n    banking/wallet\" to make the payment \r\n",
                             style: CustomTextStyles.titleSmallOnPrimaryContainer
                                 .copyWith(
                               height: 1.50,
@@ -69,7 +74,10 @@ class RechargeMyWalletScreen extends StatelessWidget {
                   ),
                   CustomElevatedButton(
                     text: "Recharge my wallet? ",
-                    margin: EdgeInsets.only(
+                    onTap: () {
+                      onTapRecharge(context);
+                    },
+                    margin: EdgeInsets.only(                      
                       left: 33.h,
                       top: 23.v,
                       right: 27.h,
@@ -81,6 +89,52 @@ class RechargeMyWalletScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) =>
+            ApplicationGuideScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
+  }
+
+  onTapRecharge(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => WalletScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
       ),
     );
   }

@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/add_vacation_one_screen/add_vacation_one_screen.dart';
@@ -131,7 +129,8 @@ class HomeScreenContainer1Screen extends StatelessWidget {
         return ViewMyPaymentHistoryScreen();
       case AppRoutes.viewMyBillScreen:
         return ViewMyBillScreen();
-
+      case AppRoutes.viewCurrentOffersScreen:
+        return ViewCurrentOffersScreen();
       default:
         return DefaultWidget();
     }

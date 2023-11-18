@@ -102,24 +102,33 @@ class VipScreen extends StatelessWidget {
                                         ]),
                                         textAlign: TextAlign.center))),
                             Padding(
-                                padding:
-                                    EdgeInsets.only(top: 14.v, right: 80.h),
-                                child: Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      CustomImageView(
-                                          imagePath: ImageConstant.imgDone,
-                                          height: 24.adaptSize,
-                                          width: 24.adaptSize),
-                                      Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 8.h, top: 2.v, bottom: 3.v),
-                                          child: Text(
-                                              "40% OFF (from MRP) on all orders ",
-                                              style: CustomTextStyles
-                                                  .labelLargeBluegray90001))
-                                    ])),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 5.v, horizontal: 70.h),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CustomImageView(
+                                    imagePath: ImageConstant.imgDone,
+                                    height: 24.adaptSize,
+                                    width: 24.adaptSize,
+                                  ),
+                                  SizedBox(
+                                      width: 8
+                                          .h), // Add some spacing between the image and text
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                          top: 2.v, bottom: 3.v),
+                                      child: Text(
+                                        "40% OFF (from MRP) on all orders",
+                                        style: CustomTextStyles
+                                            .labelLargeBluegray90001,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                             SizedBox(height: 12.v),
                             Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -81,7 +81,7 @@ class HomeScreenContainerPage extends StatelessWidget {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Padding(
-                                        padding: EdgeInsets.only(right: 19.h),
+                                        padding: EdgeInsets.only(right: 15.h),
                                         child: Row(children: [
                                           CustomImageView(
                                               imagePath: ImageConstant
@@ -100,7 +100,7 @@ class HomeScreenContainerPage extends StatelessWidget {
                                         ])),
                                     Padding(
                                         padding: EdgeInsets.only(
-                                            top: 16.v, right: 54.h),
+                                            top: 16.v, right: 15.h),
                                         child: Row(children: [
                                           CustomImageView(
                                               imagePath: ImageConstant
@@ -119,7 +119,7 @@ class HomeScreenContainerPage extends StatelessWidget {
                                         ])),
                                     Padding(
                                         padding: EdgeInsets.only(
-                                            top: 16.v, right: 13.h),
+                                            top: 16.v, right: 1.h),
                                         child: Row(children: [
                                           CustomImageView(
                                               imagePath: ImageConstant

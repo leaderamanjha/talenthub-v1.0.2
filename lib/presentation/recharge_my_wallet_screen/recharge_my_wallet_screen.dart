@@ -77,7 +77,7 @@ class RechargeMyWalletScreen extends StatelessWidget {
                     onTap: () {
                       onTapRecharge(context);
                     },
-                    margin: EdgeInsets.only(                      
+                    margin: EdgeInsets.only(
                       left: 33.h,
                       top: 23.v,
                       right: 27.h,

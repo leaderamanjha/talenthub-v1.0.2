@@ -154,7 +154,7 @@ class WalletScreen extends StatelessWidget {
                           Container(
                             width: 77.h,
                             padding: EdgeInsets.symmetric(
-                              horizontal: 18.h,
+                              horizontal: 15.h,
                               vertical: 8.v,
                             ),
                             decoration:

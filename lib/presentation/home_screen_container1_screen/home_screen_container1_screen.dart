@@ -1,3 +1,5 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/add_vacation_one_screen/add_vacation_one_screen.dart';
@@ -21,6 +23,7 @@ import 'package:talenthub/presentation/subscription_screen/subscription_screen.d
 import 'package:talenthub/presentation/t_c_referal_screen/t_c_referal_screen.dart';
 import 'package:talenthub/presentation/trasaction_history_screen/trasaction_history_screen.dart';
 import 'package:talenthub/presentation/vacations_screen/vacations_screen.dart';
+import 'package:talenthub/presentation/view_current_offers_screen/view_current_offers_screen.dart';
 import 'package:talenthub/presentation/view_my_bill_screen/view_my_bill_screen.dart';
 import 'package:talenthub/presentation/view_my_payment_history_screen/view_my_payment_history_screen.dart';
 import 'package:talenthub/presentation/wallet_screen/wallet_screen.dart';
@@ -128,6 +131,7 @@ class HomeScreenContainer1Screen extends StatelessWidget {
         return ViewMyPaymentHistoryScreen();
       case AppRoutes.viewMyBillScreen:
         return ViewMyBillScreen();
+
       default:
         return DefaultWidget();
     }

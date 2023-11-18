@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/application_guide_screen/application_guide_screen.dart';
+import 'package:talenthub/presentation/trasaction_history_screen/trasaction_history_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
 import 'package:talenthub/widgets/app_bar/appbar_subtitle_1.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
@@ -20,6 +22,9 @@ class ViewMyBillScreen extends StatelessWidget {
           leadingWidth: 48.h,
           leading: AppbarImage(
             imagePath: ImageConstant.imgBack,
+            onTap: () {
+              onTapImgBack(context);
+            },
             margin: EdgeInsets.only(
               left: 21.h,
               top: 15.v,
@@ -80,16 +85,21 @@ class ViewMyBillScreen extends StatelessWidget {
                     decoration: AppDecoration.green.copyWith(
                       borderRadius: BorderRadiusStyle.roundedBorder10,
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SizedBox(height: 3.v),
-                        Text(
-                          "View my bill?",
-                          style: CustomTextStyles.titleMediumOnPrimary,
-                        ),
-                      ],
+                    child: GestureDetector(
+                      onTap: () {
+                        onTapViewMyBill(context);
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SizedBox(height: 3.v),
+                          Text(
+                            "View my bill?",
+                            style: CustomTextStyles.titleMediumOnPrimary,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -97,6 +107,52 @@ class ViewMyBillScreen extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+
+  onTapImgBack(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) =>
+            ApplicationGuideScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
+  }
+
+  onTapViewMyBill(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) =>
+            TrasactionHistoryScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(0.0, 1.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation1.drive(tween);
+          return SlideTransition(
+            position: offsetAnimation,
+            child: child,
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
       ),
     );
   }

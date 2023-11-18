@@ -85,5 +85,4 @@ class ViewCurrentOffersOneScreen extends StatelessWidget {
       ),
     );
   }
-  
 }

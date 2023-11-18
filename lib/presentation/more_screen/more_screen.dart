@@ -70,7 +70,7 @@ class MoreScreen extends StatelessWidget {
                             })
                       ])),
               Padding(
-                  padding: EdgeInsets.only(left: 30.h, top: 2.v, right: 17.h),
+                  padding: EdgeInsets.only(left: 18.h, top: 2.v, right: 17.h),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -136,7 +136,7 @@ class MoreScreen extends StatelessWidget {
                             margin: EdgeInsets.symmetric(vertical: 1.v))
                       ])),
               Padding(
-                  padding: EdgeInsets.only(left: 16.h, top: 2.v, right: 22.h),
+                  padding: EdgeInsets.only(left: 12.h, top: 2.v, right: 20.h),
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

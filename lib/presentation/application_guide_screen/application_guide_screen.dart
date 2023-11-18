@@ -163,11 +163,12 @@ class ApplicationGuideScreen extends StatelessWidget {
                   onTap: () {
                     onTapCurrentOffer(context);
                   },
-                child: Text(
-                  "View current offers                                                    ",
-                  style: theme.textTheme.titleMedium,
+                  child: Text(
+                    "View current offers                                                    ",
+                    style: theme.textTheme.titleMedium,
+                  ),
                 ),
-              ),),
+              ),
               SizedBox(height: 5.v),
             ],
           ),
@@ -303,6 +304,7 @@ class ApplicationGuideScreen extends StatelessWidget {
       ),
     );
   }
+
   onTapCurrentOffer(BuildContext context) {
     Navigator.push(
       context,

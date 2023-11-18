@@ -295,7 +295,7 @@ class Product3 extends StatelessWidget {
     );
   }
 
- onTapFastcartone(BuildContext context) {
+  onTapFastcartone(BuildContext context) {
     Navigator.push(
       context,
       PageRouteBuilder(

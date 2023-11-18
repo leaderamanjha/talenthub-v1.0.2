@@ -4,6 +4,7 @@ import 'package:talenthub/presentation/add_vacation_one_screen/add_vacation_one_
 import 'package:talenthub/presentation/help_screen/help_screen.dart';
 import 'package:talenthub/presentation/place_an_order_screen/place_an_order_screen.dart';
 import 'package:talenthub/presentation/recharge_my_wallet_screen/recharge_my_wallet_screen.dart';
+import 'package:talenthub/presentation/view_current_offers_screen/view_current_offers_screen.dart';
 import 'package:talenthub/presentation/view_my_bill_screen/view_my_bill_screen.dart';
 import 'package:talenthub/presentation/view_my_payment_history_screen/view_my_payment_history_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image.dart';
@@ -158,11 +159,15 @@ class ApplicationGuideScreen extends StatelessWidget {
                 decoration: AppDecoration.fillOnPrimary.copyWith(
                   borderRadius: BorderRadiusStyle.roundedBorder4,
                 ),
+                child: GestureDetector(
+                  onTap: () {
+                    onTapCurrentOffer(context);
+                  },
                 child: Text(
                   "View current offers                                                    ",
                   style: theme.textTheme.titleMedium,
                 ),
-              ),
+              ),),
               SizedBox(height: 5.v),
             ],
           ),
@@ -284,6 +289,26 @@ class ApplicationGuideScreen extends StatelessWidget {
       PageRouteBuilder(
         pageBuilder: (context, animation, secondaryAnimation) =>
             ViewMyBillScreen(),
+        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+          const begin = Offset(1.0, 0.0);
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+          var offsetAnimation = animation.drive(tween);
+
+          return SlideTransition(position: offsetAnimation, child: child);
+        },
+      ),
+    );
+  }
+  onTapCurrentOffer(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ViewCurrentOffersScreen(),
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           const begin = Offset(1.0, 0.0);
           const end = Offset.zero;

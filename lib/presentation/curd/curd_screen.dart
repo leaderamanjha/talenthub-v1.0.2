@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
-import 'package:talenthub/presentation/curd/curd_screen.dart';
 import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
-import 'package:talenthub/presentation/product_screen/product1.dart';
-import 'package:talenthub/presentation/product_screen/product2.dart';
-import 'package:talenthub/presentation/product_screen/product3.dart';
 import 'package:talenthub/presentation/product_screen/product_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_1.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
@@ -13,8 +9,8 @@ import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_outlined_button.dart';
 
-class MilkScreen extends StatelessWidget {
-  const MilkScreen({Key? key}) : super(key: key);
+class CurdScreen extends StatelessWidget {
+  const CurdScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -88,8 +84,7 @@ class MilkScreen extends StatelessWidget {
                                   alignment: Alignment.topLeft,
                                   children: [
                                     CustomImageView(
-                                        imagePath:
-                                            ImageConstant.imgRectangle1888x96,
+                                        imagePath: ImageConstant.imgRectangle18,
                                         height: 88.v,
                                         width: 96.h,
                                         alignment: Alignment.topLeft,
@@ -98,141 +93,19 @@ class MilkScreen extends StatelessWidget {
                                         onTap: () {
                                           onTapImgImage(context);
                                         }),
-                                    CustomImageView(
-                                        imagePath: ImageConstant.imgRectangle48,
-                                        height: 88.v,
-                                        width: 96.h,
-                                        alignment: Alignment.topLeft,
-                                        margin: EdgeInsets.only(
-                                            left: 83.h, top: 266.v),
-                                        onTap: () {
-                                          onTapImgImage1(context);
-                                        }),
-                                    CustomImageView(
-                                        imagePath: ImageConstant.imgRectangle55,
-                                        height: 88.v,
-                                        width: 96.h,
-                                        alignment: Alignment.bottomLeft,
-                                        margin: EdgeInsets.only(
-                                            left: 83.h, bottom: 268.v),
-                                        onTap: () {
-                                          onTapImgImage2(context);
-                                        }),
-                                    CustomImageView(
-                                        imagePath: ImageConstant.imgRectangle62,
-                                        height: 88.v,
-                                        width: 96.h,
-                                        alignment: Alignment.bottomLeft,
-                                        margin: EdgeInsets.only(
-                                            left: 83.h, bottom: 66.v),
-                                        onTap: () {
-                                          onTapImgImage3(context);
-                                        }),
                                     Align(
                                         alignment: Alignment.topRight,
                                         child: Padding(
                                             padding: EdgeInsets.only(
-                                                top: 11.v, right: 117.h),
-                                            child: Text("Milk Medium Fat",
+                                                top: 11.v, right: 155.h),
+                                            child: Text("Curd Pouch",
                                                 style: CustomTextStyles
                                                     .labelLargeBlack90012))),
                                     Align(
                                         alignment: Alignment.topRight,
                                         child: Padding(
                                             padding: EdgeInsets.only(
-                                                top: 249.v, right: 148.h),
-                                            child: Text("Milk Full Fat",
-                                                style: CustomTextStyles
-                                                    .labelLargeBlack90012))),
-                                    Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Padding(
-                                            padding: EdgeInsets.only(
-                                                right: 145.h, bottom: 354.v),
-                                            child: Text("Milk Low Fat",
-                                                style: CustomTextStyles
-                                                    .labelLargeBlack90012))),
-                                    Align(
-                                        alignment: Alignment.bottomCenter,
-                                        child: Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 152.v),
-                                            child: Text("Milk Bottle",
-                                                style: CustomTextStyles
-                                                    .labelLargeBlack90012))),
-                                    Align(
-                                        alignment: Alignment.topRight,
-                                        child: Padding(
-                                            padding: EdgeInsets.only(
-                                                top: 249.v, right: 10.h),
-                                            child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  CustomElevatedButton(
-                                                      height: 22.v,
-                                                      width: 55.h,
-                                                      text: "Popular",
-                                                      buttonStyle:
-                                                          CustomButtonStyles
-                                                              .none,
-                                                      decoration: CustomButtonStyles
-                                                          .gradientGreenAToYellowADecoration),
-                                                  SizedBox(height: 18.v),
-                                                  CustomElevatedButton(
-                                                      height: 35.v,
-                                                      width: 77.h,
-                                                      text: "Subscribe",
-                                                      buttonStyle:
-                                                          CustomButtonStyles
-                                                              .fillGreenA,
-                                                      buttonTextStyle:
-                                                          CustomTextStyles
-                                                              .labelMediumOnPrimary),
-                                                  SizedBox(height: 5.v),
-                                                  CustomOutlinedButton(
-                                                      width: 77.h, text: "ADD")
-                                                ]))),
-                                    Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Padding(
-                                            padding: EdgeInsets.only(
-                                                right: 10.h, bottom: 258.v),
-                                            child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  CustomElevatedButton(
-                                                      height: 22.v,
-                                                      width: 55.h,
-                                                      text: "Popular",
-                                                      buttonStyle:
-                                                          CustomButtonStyles
-                                                              .none,
-                                                      decoration: CustomButtonStyles
-                                                          .gradientGreenAToYellowADecoration),
-                                                  SizedBox(height: 18.v),
-                                                  CustomElevatedButton(
-                                                      height: 35.v,
-                                                      width: 77.h,
-                                                      text: "Subscribe",
-                                                      buttonStyle:
-                                                          CustomButtonStyles
-                                                              .fillGreenA,
-                                                      buttonTextStyle:
-                                                          CustomTextStyles
-                                                              .labelMediumOnPrimary),
-                                                  SizedBox(height: 5.v),
-                                                  CustomOutlinedButton(
-                                                      width: 77.h, text: "ADD")
-                                                ]))),
-                                    Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Padding(
-                                            padding: EdgeInsets.only(
-                                                right: 10.h, bottom: 56.v),
+                                                top: 14.v, right: 10.h),
                                             child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 crossAxisAlignment:
@@ -273,68 +146,11 @@ class MilkScreen extends StatelessWidget {
                                         alignment: Alignment.topCenter,
                                         child: Padding(
                                             padding:
-                                                EdgeInsets.only(top: 268.v),
-                                            child: Text("500ml",
-                                                style: theme
-                                                    .textTheme.labelMedium))),
-                                    Align(
-                                        alignment: Alignment.bottomCenter,
-                                        child: Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 338.v),
-                                            child: Text("500ml",
-                                                style: theme
-                                                    .textTheme.labelMedium))),
-                                    Align(
-                                        alignment: Alignment.bottomCenter,
-                                        child: Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 136.v),
-                                            child: Text("500ml",
-                                                style: theme
-                                                    .textTheme.labelMedium))),
-                                    Align(
-                                        alignment: Alignment.topRight,
-                                        child: Padding(
-                                            padding: EdgeInsets.only(
-                                                top: 11.v, right: 9.h),
-                                            child: Column(
-                                                mainAxisSize: MainAxisSize.min,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.end,
-                                                children: [
-                                                  CustomElevatedButton(
-                                                      height: 22.v,
-                                                      width: 55.h,
-                                                      text: "Popular",
-                                                      buttonStyle:
-                                                          CustomButtonStyles
-                                                              .none,
-                                                      decoration: CustomButtonStyles
-                                                          .gradientGreenAToYellowADecoration),
-                                                  SizedBox(height: 18.v),
-                                                  CustomElevatedButton(
-                                                      height: 35.v,
-                                                      width: 77.h,
-                                                      text: "Subscribe",
-                                                      buttonStyle:
-                                                          CustomButtonStyles
-                                                              .fillGreenA,
-                                                      buttonTextStyle:
-                                                          CustomTextStyles
-                                                              .labelMediumOnPrimary),
-                                                  SizedBox(height: 5.v),
-                                                  CustomOutlinedButton(
-                                                      width: 77.h, text: "ADD")
-                                                ]))),
-                                    Align(
-                                        alignment: Alignment.centerRight,
-                                        child: Padding(
-                                            padding:
                                                 EdgeInsets.only(right: 152.h),
                                             child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
+                                                  SizedBox(height: 100.v),
                                                   Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
@@ -354,66 +170,6 @@ class MilkScreen extends StatelessWidget {
                                                                         decoration:
                                                                             TextDecoration.lineThrough)))
                                                       ]),
-                                                  SizedBox(height: 222.v),
-                                                  Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        Text("₹60",
-                                                            style: CustomTextStyles
-                                                                .labelMediumBlack900),
-                                                        Padding(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    left: 16.h),
-                                                            child: Text(" ₹80",
-                                                                style: theme
-                                                                    .textTheme
-                                                                    .labelMedium!
-                                                                    .copyWith(
-                                                                        decoration:
-                                                                            TextDecoration.lineThrough)))
-                                                      ]),
-                                                  SizedBox(height: 185.v),
-                                                  Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        Text("₹60",
-                                                            style: CustomTextStyles
-                                                                .labelMediumBlack900),
-                                                        Padding(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    left: 16.h),
-                                                            child: Text(" ₹80",
-                                                                style: theme
-                                                                    .textTheme
-                                                                    .labelMedium!
-                                                                    .copyWith(
-                                                                        decoration:
-                                                                            TextDecoration.lineThrough)))
-                                                      ]),
-                                                  SizedBox(height: 185.v),
-                                                  Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment.end,
-                                                      children: [
-                                                        Text("₹60",
-                                                            style: CustomTextStyles
-                                                                .labelMediumBlack900),
-                                                        Padding(
-                                                            padding:
-                                                                EdgeInsets.only(
-                                                                    left: 16.h),
-                                                            child: Text(" ₹80",
-                                                                style: theme
-                                                                    .textTheme
-                                                                    .labelMedium!
-                                                                    .copyWith(
-                                                                        decoration:
-                                                                            TextDecoration.lineThrough)))
-                                                      ])
                                                 ]))),
                                     Align(
                                         alignment: Alignment.topRight,
@@ -448,51 +204,6 @@ class MilkScreen extends StatelessWidget {
                                             child: Text("30% OFF",
                                                 style: CustomTextStyles
                                                     .labelSmallBlack900))),
-                                    Align(
-                                        alignment: Alignment.topLeft,
-                                        child: Container(
-                                            margin: EdgeInsets.only(
-                                                left: 85.h, top: 251.v),
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 5.h, vertical: 1.v),
-                                            decoration: AppDecoration.fillLimeA
-                                                .copyWith(
-                                                    borderRadius:
-                                                        BorderRadiusStyle
-                                                            .roundedBorder4),
-                                            child: Text("30% OFF",
-                                                style: CustomTextStyles
-                                                    .labelSmallBlack900))),
-                                    Align(
-                                        alignment: Alignment.bottomLeft,
-                                        child: Container(
-                                            margin: EdgeInsets.only(
-                                                left: 85.h, bottom: 353.v),
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 5.h, vertical: 1.v),
-                                            decoration: AppDecoration.fillLimeA
-                                                .copyWith(
-                                                    borderRadius:
-                                                        BorderRadiusStyle
-                                                            .roundedBorder4),
-                                            child: Text("30% OFF",
-                                                style: CustomTextStyles
-                                                    .labelSmallBlack900))),
-                                    Align(
-                                        alignment: Alignment.bottomLeft,
-                                        child: Container(
-                                            margin: EdgeInsets.only(
-                                                left: 85.h, bottom: 151.v),
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 5.h, vertical: 1.v),
-                                            decoration: AppDecoration.fillLimeA
-                                                .copyWith(
-                                                    borderRadius:
-                                                        BorderRadiusStyle
-                                                            .roundedBorder4),
-                                            child: Text("30% OFF",
-                                                style: CustomTextStyles
-                                                    .labelSmallBlack900))),
                                     CustomElevatedButton(
                                         height: 29.v,
                                         width: 299.h,
@@ -512,63 +223,6 @@ class MilkScreen extends StatelessWidget {
                                         buttonTextStyle:
                                             CustomTextStyles.labelLarge13,
                                         alignment: Alignment.topRight),
-                                    CustomElevatedButton(
-                                        height: 29.v,
-                                        width: 299.h,
-                                        text:
-                                            "You are saving ₹20 (30% OFF)With       VIP ",
-                                        margin: EdgeInsets.only(
-                                            top: 375.v, right: 8.h),
-                                        rightIcon: Container(
-                                            child: CustomImageView(
-                                                imagePath: ImageConstant
-                                                    .imgKisspngemblem,
-                                                height: 16.adaptSize,
-                                                width: 16.adaptSize)),
-                                        buttonStyle: CustomButtonStyles.none,
-                                        decoration: CustomButtonStyles
-                                            .gradientWhiteToYellow,
-                                        buttonTextStyle:
-                                            CustomTextStyles.labelLarge13,
-                                        alignment: Alignment.topRight),
-                                    CustomElevatedButton(
-                                        height: 29.v,
-                                        width: 299.h,
-                                        text:
-                                            "You are saving ₹20 (30% OFF)With       VIP ",
-                                        margin: EdgeInsets.only(
-                                            right: 8.h, bottom: 218.v),
-                                        rightIcon: Container(
-                                            child: CustomImageView(
-                                                imagePath: ImageConstant
-                                                    .imgKisspngemblem,
-                                                height: 16.adaptSize,
-                                                width: 16.adaptSize)),
-                                        buttonStyle: CustomButtonStyles.none,
-                                        decoration: CustomButtonStyles
-                                            .gradientWhiteToYellow,
-                                        buttonTextStyle:
-                                            CustomTextStyles.labelLarge13,
-                                        alignment: Alignment.bottomRight),
-                                    CustomElevatedButton(
-                                        height: 29.v,
-                                        width: 299.h,
-                                        text:
-                                            "You are saving ₹20 (30% OFF)With       VIP ",
-                                        margin: EdgeInsets.only(
-                                            right: 8.h, bottom: 16.v),
-                                        rightIcon: Container(
-                                            child: CustomImageView(
-                                                imagePath: ImageConstant
-                                                    .imgKisspngemblem,
-                                                height: 16.adaptSize,
-                                                width: 16.adaptSize)),
-                                        buttonStyle: CustomButtonStyles.none,
-                                        decoration: CustomButtonStyles
-                                            .gradientWhiteToYellow,
-                                        buttonTextStyle:
-                                            CustomTextStyles.labelLarge13,
-                                        alignment: Alignment.bottomRight),
                                     Align(
                                         alignment: Alignment.centerLeft,
                                         child: Padding(
@@ -755,32 +409,6 @@ class MilkScreen extends StatelessWidget {
                                                 width: 309.h,
                                                 child:
                                                     Divider(endIndent: 1.h)))),
-                                    Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Container(
-                                            height: 20.v,
-                                            width: 113.h,
-                                            margin: EdgeInsets.only(
-                                                right: 117.h, bottom: 48.v),
-                                            child: Stack(
-                                                alignment: Alignment.topRight,
-                                                children: [
-                                                  CustomImageView(
-                                                      imagePath: ImageConstant
-                                                          .imgSearch,
-                                                      height: 17.adaptSize,
-                                                      width: 17.adaptSize),
-                                                  Align(
-                                                      alignment:
-                                                          Alignment.topRight,
-                                                      child: Padding(
-                                                          padding:
-                                                              EdgeInsets.only(
-                                                                  right: 21.h),
-                                                          child: Text("Search",
-                                                              style: CustomTextStyles
-                                                                  .bodyMediumOnPrimary_1)))
-                                                ])))
                                   ]))
                         ])))));
   }
@@ -827,66 +455,6 @@ class MilkScreen extends StatelessWidget {
     );
   }
 
-  onTapImgImage1(BuildContext context) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) => Product1(),
-        transitionsBuilder: (context, animation1, animation2, child) {
-          const begin = 0.0;
-          const end = 1.0;
-          var tween = Tween(begin: begin, end: end);
-          var opacityAnimation = animation1.drive(tween);
-          return ScaleTransition(
-            scale: opacityAnimation,
-            child: child,
-          );
-        },
-        transitionDuration: Duration(milliseconds: 110),
-      ),
-    );
-  }
-
-  onTapImgImage2(BuildContext context) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) => Product2(),
-        transitionsBuilder: (context, animation1, animation2, child) {
-          const begin = 0.0;
-          const end = 1.0;
-          var tween = Tween(begin: begin, end: end);
-          var opacityAnimation = animation1.drive(tween);
-          return ScaleTransition(
-            scale: opacityAnimation,
-            child: child,
-          );
-        },
-        transitionDuration: Duration(milliseconds: 110),
-      ),
-    );
-  }
-
-  onTapImgImage3(BuildContext context) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) => Product3(),
-        transitionsBuilder: (context, animation1, animation2, child) {
-          const begin = 0.0;
-          const end = 1.0;
-          var tween = Tween(begin: begin, end: end);
-          var opacityAnimation = animation1.drive(tween);
-          return ScaleTransition(
-            scale: opacityAnimation,
-            child: child,
-          );
-        },
-        transitionDuration: Duration(milliseconds: 110),
-      ),
-    );
-  }
-
   onTapImgBack(BuildContext context) {
     Navigator.push(
       context,
@@ -912,35 +480,8 @@ class MilkScreen extends StatelessWidget {
   }
 
   onTapColumncurd(BuildContext context) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) => CurdScreen(),
-        transitionsBuilder: (context, animation1, animation2, child) {
-          const begin = Offset(-1.0, 0.0); // Changed the initial offset
-          const end = Offset.zero;
-          const curve = Curves.easeInOut;
-
-          var tween =
-              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-          var offsetAnimation = animation1.drive(tween);
-
-          // Use ScaleTransition for horizontal flip
-          return ScaleTransition(
-            scale: Tween<double>(begin: -1.0, end: 1.0).animate(animation1),
-            alignment: Alignment.center,
-            child: SlideTransition(
-              position: offsetAnimation,
-              child: child,
-            ),
-          );
-        },
-        transitionDuration: Duration(milliseconds: 300),
-      ),
-    );
+    // TODO: implement Actions
   }
-
   onTapImgImageseven(BuildContext context) {
     // TODO: implement Actions
   }

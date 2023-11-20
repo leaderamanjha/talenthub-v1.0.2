@@ -62,7 +62,7 @@ class ViewMyBillScreen extends StatelessWidget {
                           ),
                           TextSpan(
                             text:
-                                "Go to “View bill” tab in the side menu\nBill details will be fetched for the current month \nTap “>” or ”<” to view the bills of other months\n",
+                                "● Go to “View bill” tab in the side menu\n● Bill details will be fetched for the current month \n● Tap “>” or ”<” to view the bills of other months\n",
                             style: CustomTextStyles.titleSmallOnPrimaryContainer
                                 .copyWith(
                               height: 1.50,

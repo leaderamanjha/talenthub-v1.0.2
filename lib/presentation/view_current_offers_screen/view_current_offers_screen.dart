@@ -61,7 +61,7 @@ class ViewCurrentOffersScreen extends StatelessWidget {
                           ),
                           TextSpan(
                             text:
-                                "Go to “offers” tab in the side menu\nCheck the available/applicable offers and click to apply",
+                                "● Go to “offers” tab in the side menu\n● Check the available/applicable offers and click to apply",
                             style: CustomTextStyles.titleSmallOnPrimaryContainer
                                 .copyWith(
                               height: 1.50,

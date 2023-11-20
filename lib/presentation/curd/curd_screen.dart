@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
 import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
+import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
 import 'package:talenthub/presentation/product_screen/product_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_1.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_outlined_button.dart';
+import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
 
 class CurdScreen extends StatelessWidget {
   const CurdScreen({Key? key}) : super(key: key);
@@ -93,6 +95,17 @@ class CurdScreen extends StatelessWidget {
                                         onTap: () {
                                           onTapImgImage(context);
                                         }),
+                                    CustomImageView(
+                                        imagePath:
+                                            ImageConstant.imgRectangle4888x96,
+                                        height: 88.v,
+                                        width: 96.h,
+                                        alignment: Alignment.topLeft,
+                                        margin: EdgeInsets.only(
+                                            left: 83.h, top: 266.v),
+                                        onTap: () {
+                                          onTapImgImage(context);
+                                        }),
                                     Align(
                                         alignment: Alignment.topRight,
                                         child: Padding(
@@ -105,7 +118,49 @@ class CurdScreen extends StatelessWidget {
                                         alignment: Alignment.topRight,
                                         child: Padding(
                                             padding: EdgeInsets.only(
+                                                top: 249.v, right: 155.h),
+                                            child: Text("Curd Bowl",
+                                                style: CustomTextStyles
+                                                    .labelLargeBlack90012))),
+                                    Align(
+                                        alignment: Alignment.topRight,
+                                        child: Padding(
+                                            padding: EdgeInsets.only(
                                                 top: 14.v, right: 10.h),
+                                            child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.end,
+                                                children: [
+                                                  CustomElevatedButton(
+                                                      height: 22.v,
+                                                      width: 55.h,
+                                                      text: "Popular",
+                                                      buttonStyle:
+                                                          CustomButtonStyles
+                                                              .none,
+                                                      decoration: CustomButtonStyles
+                                                          .gradientGreenAToYellowADecoration),
+                                                  SizedBox(height: 18.v),
+                                                  CustomElevatedButton(
+                                                      height: 35.v,
+                                                      width: 77.h,
+                                                      text: "Subscribe",
+                                                      buttonStyle:
+                                                          CustomButtonStyles
+                                                              .fillGreenA,
+                                                      buttonTextStyle:
+                                                          CustomTextStyles
+                                                              .labelMediumOnPrimary),
+                                                  SizedBox(height: 5.v),
+                                                  CustomOutlinedButton(
+                                                      width: 77.h, text: "ADD")
+                                                ]))),
+                                    Align(
+                                        alignment: Alignment.topRight,
+                                        child: Padding(
+                                            padding: EdgeInsets.only(
+                                                top: 249.v, right: 10.h),
                                             child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 crossAxisAlignment:
@@ -146,11 +201,39 @@ class CurdScreen extends StatelessWidget {
                                         alignment: Alignment.topCenter,
                                         child: Padding(
                                             padding:
+                                                EdgeInsets.only(top: 268.v),
+                                            child: Text("500ml",
+                                                style: theme
+                                                    .textTheme.labelMedium))),
+                                    Align(
+                                        alignment: Alignment.topCenter,
+                                        child: Padding(
+                                            padding:
                                                 EdgeInsets.only(right: 152.h),
                                             child: Column(
                                                 mainAxisSize: MainAxisSize.min,
                                                 children: [
                                                   SizedBox(height: 100.v),
+                                                  Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        Text("₹60",
+                                                            style: CustomTextStyles
+                                                                .labelMediumBlack900),
+                                                        Padding(
+                                                            padding:
+                                                                EdgeInsets.only(
+                                                                    left: 16.h),
+                                                            child: Text(" ₹80",
+                                                                style: theme
+                                                                    .textTheme
+                                                                    .labelMedium!
+                                                                    .copyWith(
+                                                                        decoration:
+                                                                            TextDecoration.lineThrough)))
+                                                      ]),
+                                                  SizedBox(height: 222.v),
                                                   Row(
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
@@ -204,6 +287,21 @@ class CurdScreen extends StatelessWidget {
                                             child: Text("30% OFF",
                                                 style: CustomTextStyles
                                                     .labelSmallBlack900))),
+                                    Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Container(
+                                            margin: EdgeInsets.only(
+                                                left: 85.h, top: 251.v),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 5.h, vertical: 1.v),
+                                            decoration: AppDecoration.fillLimeA
+                                                .copyWith(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .roundedBorder4),
+                                            child: Text("30% OFF",
+                                                style: CustomTextStyles
+                                                    .labelSmallBlack900))),
                                     CustomElevatedButton(
                                         height: 29.v,
                                         width: 299.h,
@@ -211,6 +309,25 @@ class CurdScreen extends StatelessWidget {
                                             "You are saving ₹20 (30% OFF)With VIP ",
                                         margin: EdgeInsets.only(
                                             top: 137.v, right: 7.h),
+                                        rightIcon: Container(
+                                            child: CustomImageView(
+                                                imagePath: ImageConstant
+                                                    .imgKisspngemblem,
+                                                height: 16.adaptSize,
+                                                width: 16.adaptSize)),
+                                        buttonStyle: CustomButtonStyles.none,
+                                        decoration: CustomButtonStyles
+                                            .gradientWhiteToYellow,
+                                        buttonTextStyle:
+                                            CustomTextStyles.labelLarge13,
+                                        alignment: Alignment.topRight),
+                                    CustomElevatedButton(
+                                        height: 29.v,
+                                        width: 299.h,
+                                        text:
+                                            "You are saving ₹20 (30% OFF)With VIP ",
+                                        margin: EdgeInsets.only(
+                                            top: 375.v, right: 8.h),
                                         rightIcon: Container(
                                             child: CustomImageView(
                                                 imagePath: ImageConstant
@@ -241,54 +358,59 @@ class CurdScreen extends StatelessWidget {
                                               SizedBox(
                                                   height: 86.v,
                                                   width: 85.h,
-                                                  child: Stack(
-                                                      alignment:
-                                                          Alignment.topCenter,
-                                                      children: [
-                                                        Align(
-                                                            alignment: Alignment
-                                                                .bottomCenter,
-                                                            child: Text("Milk ",
-                                                                style: CustomTextStyles
-                                                                    .labelMediumBlack900)),
-                                                        Align(
-                                                            alignment: Alignment
-                                                                .topCenter,
-                                                            child: SizedBox(
-                                                                height: 79.v,
-                                                                width: 85.h,
-                                                                child: Stack(
-                                                                    alignment:
-                                                                        Alignment
-                                                                            .center,
-                                                                    children: [
-                                                                      Align(
-                                                                          alignment: Alignment
-                                                                              .topCenter,
-                                                                          child: Container(
-                                                                              height: 52.adaptSize,
-                                                                              width: 52.adaptSize,
-                                                                              margin: EdgeInsets.only(top: 12.v),
-                                                                              decoration: BoxDecoration(color: appTheme.blueGray100, borderRadius: BorderRadius.circular(26.h)))),
-                                                                      Align(
-                                                                          alignment:
-                                                                              Alignment.center,
-                                                                          child: SizedBox(
-                                                                              height: 79.v,
-                                                                              width: 85.h,
-                                                                              child: Stack(alignment: Alignment.topRight, children: [
-                                                                                CustomImageView(imagePath: ImageConstant.imgRectangle45, height: 79.v, width: 85.h, alignment: Alignment.center),
-                                                                                Align(
-                                                                                    alignment: Alignment.topRight,
-                                                                                    child: Padding(
-                                                                                        padding: EdgeInsets.only(top: 4.v, right: 4.h),
-                                                                                        child: Row(mainAxisAlignment: MainAxisAlignment.end, mainAxisSize: MainAxisSize.min, children: [
-                                                                                          CustomImageView(imagePath: ImageConstant.imgRectangle44, height: 61.v, width: 40.h),
-                                                                                          Padding(padding: EdgeInsets.only(left: 7.h), child: SizedBox(height: 61.v, child: VerticalDivider(width: 4.h, thickness: 4.v, color: appTheme.greenA700, indent: 12.h, endIndent: 5.h)))
-                                                                                        ])))
-                                                                              ])))
-                                                                    ])))
-                                                      ])),
+                                                  child: GestureDetector(
+                                                      onTap: () {
+                                                        onTapColumnMilk(
+                                                            context);
+                                                      },
+                                                      child: Stack(
+                                                          alignment: Alignment
+                                                              .topCenter,
+                                                          children: [
+                                                            Align(
+                                                                alignment: Alignment
+                                                                    .bottomCenter,
+                                                                child: Text(
+                                                                    "Milk ",
+                                                                    style: CustomTextStyles
+                                                                        .labelMediumBlack900)),
+                                                            Align(
+                                                                alignment:
+                                                                    Alignment
+                                                                        .topCenter,
+                                                                child: SizedBox(
+                                                                    height:
+                                                                        79.v,
+                                                                    width: 85.h,
+                                                                    child: Stack(
+                                                                        alignment:
+                                                                            Alignment.center,
+                                                                        children: [
+                                                                          Align(
+                                                                              alignment: Alignment.topCenter,
+                                                                              child: GestureDetector(
+                                                                                  onTap: () {
+                                                                                    onTapColumnMilk(context);
+                                                                                  },
+                                                                                  child: Container(height: 52.adaptSize, width: 52.adaptSize, margin: EdgeInsets.only(top: 12.v), decoration: BoxDecoration(color: appTheme.blueGray100, borderRadius: BorderRadius.circular(26.h))))),
+                                                                          Align(
+                                                                              alignment: Alignment.center,
+                                                                              child: SizedBox(
+                                                                                  height: 79.v,
+                                                                                  width: 85.h,
+                                                                                  child: Stack(alignment: Alignment.topRight, children: [
+                                                                                    CustomImageView(imagePath: ImageConstant.imgRectangle45, height: 79.v, width: 85.h, alignment: Alignment.center),
+                                                                                    Align(
+                                                                                        alignment: Alignment.topRight,
+                                                                                        child: Padding(
+                                                                                            padding: EdgeInsets.only(top: 4.v, right: 4.h),
+                                                                                            child: Row(mainAxisAlignment: MainAxisAlignment.end, mainAxisSize: MainAxisSize.min, children: [
+                                                                                              CustomImageView(imagePath: ImageConstant.imgRectangle44, height: 61.v, width: 40.h),
+                                                                                              Padding(padding: EdgeInsets.only(left: 7.h), child: SizedBox(height: 61.v, child: VerticalDivider(width: 4.h, thickness: 4.v, color: appTheme.greenA700, indent: 12.h, endIndent: 5.h)))
+                                                                                            ])))
+                                                                                  ])))
+                                                                        ])))
+                                                          ]))),
                                               SizedBox(height: 12.v),
                                               SizedBox(
                                                   height: 77.v,
@@ -300,45 +422,55 @@ class CurdScreen extends StatelessWidget {
                                                         Align(
                                                             alignment: Alignment
                                                                 .topCenter,
-                                                            child: Container(
-                                                                height: 52
-                                                                    .adaptSize,
-                                                                width: 52
-                                                                    .adaptSize,
-                                                                margin: EdgeInsets
-                                                                    .only(
-                                                                        top: 3
-                                                                            .v),
-                                                                decoration: BoxDecoration(
-                                                                    color: appTheme
-                                                                        .blueGray100,
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            26.h)))),
-                                                        Align(
-                                                            alignment: Alignment
-                                                                .center,
                                                             child:
                                                                 GestureDetector(
                                                                     onTap: () {
-                                                                      onTapColumncurd(
+                                                                      onTapColumnMilk(
                                                                           context);
                                                                     },
-                                                                    child: Column(
-                                                                        mainAxisSize:
-                                                                            MainAxisSize
-                                                                                .min,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.end,
-                                                                        children: [
-                                                                          CustomImageView(
-                                                                              imagePath: ImageConstant.imgRectangle46,
-                                                                              height: 55.v,
-                                                                              width: 60.h),
-                                                                          Padding(
-                                                                              padding: EdgeInsets.only(top: 1.v, right: 20.h),
-                                                                              child: Text("Curd", style: theme.textTheme.labelMedium))
-                                                                        ])))
+                                                                    child: Container(
+                                                                        height: 52
+                                                                            .adaptSize,
+                                                                        width: 52
+                                                                            .adaptSize,
+                                                                        margin: EdgeInsets.only(
+                                                                            top: 3
+                                                                                .v),
+                                                                        decoration: BoxDecoration(
+                                                                            color:
+                                                                                appTheme.blueGray100,
+                                                                            borderRadius: BorderRadius.circular(26.h))))),
+                                                        Align(
+                                                            alignment: Alignment
+                                                                .center,
+                                                            child: Column(
+                                                                mainAxisSize:
+                                                                    MainAxisSize
+                                                                        .min,
+                                                                crossAxisAlignment:
+                                                                    CrossAxisAlignment
+                                                                        .end,
+                                                                children: [
+                                                                  CustomImageView(
+                                                                      imagePath:
+                                                                          ImageConstant
+                                                                              .imgRectangle46,
+                                                                      height:
+                                                                          55.v,
+                                                                      width:
+                                                                          60.h),
+                                                                  Padding(
+                                                                      padding: EdgeInsets.only(
+                                                                          top: 1
+                                                                              .v,
+                                                                          right: 20
+                                                                              .h),
+                                                                      child: Text(
+                                                                          "Curd",
+                                                                          style: theme
+                                                                              .textTheme
+                                                                              .labelMedium))
+                                                                ]))
                                                       ])),
                                               SizedBox(height: 14.v),
                                               SizedBox(
@@ -400,15 +532,6 @@ class CurdScreen extends StatelessWidget {
                                         child: SizedBox(
                                             width: 309.h,
                                             child: Divider(endIndent: 1.h))),
-                                    Align(
-                                        alignment: Alignment.bottomRight,
-                                        child: Padding(
-                                            padding:
-                                                EdgeInsets.only(bottom: 199.v),
-                                            child: SizedBox(
-                                                width: 309.h,
-                                                child:
-                                                    Divider(endIndent: 1.h)))),
                                   ]))
                         ])))));
   }
@@ -459,8 +582,7 @@ class CurdScreen extends StatelessWidget {
     Navigator.push(
       context,
       PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) =>
-            HomeScreenContainerPage(),
+        pageBuilder: (context, animation1, animation2) => MilkScreen(),
         transitionsBuilder: (context, animation1, animation2, child) {
           const begin = Offset(-1.0, 0.0);
           const end = Offset.zero;
@@ -479,9 +601,36 @@ class CurdScreen extends StatelessWidget {
     );
   }
 
-  onTapColumncurd(BuildContext context) {
-    // TODO: implement Actions
+  onTapColumnMilk(BuildContext context) {
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => MilkScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0); // Changed the initial offset
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          var offsetAnimation = animation1.drive(tween);
+
+          // Use ScaleTransition for horizontal flip
+          return ScaleTransition(
+            scale: Tween<double>(begin: -1.0, end: 1.0).animate(animation1),
+            alignment: Alignment.center,
+            child: SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            ),
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
   }
+
   onTapImgImageseven(BuildContext context) {
     // TODO: implement Actions
   }

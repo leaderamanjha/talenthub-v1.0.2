@@ -60,8 +60,8 @@ class MilkScreen extends StatelessWidget {
                                     margin:
                                         EdgeInsets.symmetric(vertical: 4.v)),
                                 Container(
-                                    height: 40.v,
-                                    width: 173.h,
+                                    height: 50.v,
+                                    width: 185.h,
                                     margin: EdgeInsets.only(left: 6.h),
                                     child: Stack(
                                         alignment: Alignment.bottomCenter,

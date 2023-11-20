@@ -20,7 +20,7 @@ class ListrecommendedItemWidget extends StatelessWidget {
           ),
         ),
         Text(
-          "                                                           Apply",
+          "                                                                       Apply",
           style: CustomTextStyles.labelLargePrimary,
         ),
       ],

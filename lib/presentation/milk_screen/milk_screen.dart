@@ -3,6 +3,7 @@ import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
 import 'package:talenthub/presentation/curd/curd_screen.dart';
 import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
+import 'package:talenthub/presentation/lassi_screen/lassi_screen.dart';
 import 'package:talenthub/presentation/product_screen/product1.dart';
 import 'package:talenthub/presentation/product_screen/product2.dart';
 import 'package:talenthub/presentation/product_screen/product3.dart';
@@ -942,9 +943,62 @@ class MilkScreen extends StatelessWidget {
   }
 
   onTapImgImageseven(BuildContext context) {
-    // TODO: implement Actions
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => LassiScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0); // Changed the initial offset
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          var offsetAnimation = animation1.drive(tween);
+
+          // Use ScaleTransition for horizontal flip
+          return ScaleTransition(
+            scale: Tween<double>(begin: -1.0, end: 1.0).animate(animation1),
+            alignment: Alignment.center,
+            child: SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            ),
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
   }
+
   onTapTxtButtermilk(BuildContext context) {
-    // TODO: implement Actions
+    Navigator.push(
+      context,
+      PageRouteBuilder(
+        pageBuilder: (context, animation1, animation2) => LassiScreen(),
+        transitionsBuilder: (context, animation1, animation2, child) {
+          const begin = Offset(-1.0, 0.0); // Changed the initial offset
+          const end = Offset.zero;
+          const curve = Curves.easeInOut;
+
+          var tween =
+              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+          var offsetAnimation = animation1.drive(tween);
+
+          // Use ScaleTransition for horizontal flip
+          return ScaleTransition(
+            scale: Tween<double>(begin: -1.0, end: 1.0).animate(animation1),
+            alignment: Alignment.center,
+            child: SlideTransition(
+              position: offsetAnimation,
+              child: child,
+            ),
+          );
+        },
+        transitionDuration: Duration(milliseconds: 300),
+      ),
+    );
   }
 }

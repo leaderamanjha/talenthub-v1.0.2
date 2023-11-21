@@ -1,26 +1,29 @@
 name: talenthub
 description: A new Flutter project.
 version: 1.0.0+1
-environment: 
-  sdk: '>=2.12.0 <3.0.0'
-dependencies: 
-  flutter: 
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+dependencies:
+  flutter:
     sdk: flutter
+  convert: 3.1.1
   cached_network_image: ^3.2.1
-  flutter_svg: ^1.1.6
+  flutter_svg: ^2.0.9
   pin_code_fields: ^7.3.0
   intl: ^0.18.0
-dev_dependencies: 
-  flutter_test: 
+dev_dependencies:
+  flutter_test:
     sdk: flutter
-flutter: 
+flutter:
   uses-material-design: true
-  assets: 
+  assets:
     - assets/
     - assets/images/
-  fonts: 
+    - assets/json/product_data.json
+
+  fonts:
     - family: Poppins
-      fonts: 
+      fonts:
         - asset: assets/fonts/PoppinsRegular.ttf
           weight: 400
         - asset: assets/fonts/PoppinsBold.ttf
@@ -32,15 +35,15 @@ flutter:
         - asset: assets/fonts/PoppinsSemiBold.ttf
           weight: 600
     - family: Poly
-      fonts: 
+      fonts:
         - asset: assets/fonts/PolyRegular.ttf
           weight: 400
     - family: Podkova
-      fonts: 
+      fonts:
         - asset: assets/fonts/PodkovaBold.ttf
           weight: 700
     - family: Inter
-      fonts: 
+      fonts:
         - asset: assets/fonts/InterMedium.ttf
           weight: 500
         - asset: assets/fonts/InterRegular.ttf

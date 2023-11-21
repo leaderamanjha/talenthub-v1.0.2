@@ -109,7 +109,7 @@ class LassiScreen extends StatelessWidget {
                                         child: Padding(
                                             padding: EdgeInsets.only(
                                                 top: 11.v, right: 155.h),
-                                            child: Text("Curd Pouch",
+                                            child: Text("Butter Milk (Lassi)",
                                                 style: CustomTextStyles
                                                     .labelLargeBlack90012))),
                                     Align(
@@ -117,7 +117,7 @@ class LassiScreen extends StatelessWidget {
                                         child: Padding(
                                             padding: EdgeInsets.only(
                                                 top: 249.v, right: 155.h),
-                                            child: Text("Curd Bowl",
+                                            child: Text("Lassi",
                                                 style: CustomTextStyles
                                                     .labelLargeBlack90012))),
                                     Align(
@@ -236,14 +236,14 @@ class LassiScreen extends StatelessWidget {
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        Text("₹60",
+                                                        Text("₹50",
                                                             style: CustomTextStyles
                                                                 .labelMediumBlack900),
                                                         Padding(
                                                             padding:
                                                                 EdgeInsets.only(
                                                                     left: 16.h),
-                                                            child: Text(" ₹80",
+                                                            child: Text(" ₹70",
                                                                 style: theme
                                                                     .textTheme
                                                                     .labelMedium!

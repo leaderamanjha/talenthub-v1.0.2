@@ -1,0 +1,51 @@
+[
+    {
+        "product_name": "Milk Medium Fat",
+        "product_image": "images/img_rectangle18.png",
+        "product_old_price": "₹80",
+        "product_new_price": "₹60",
+        "product_quantity": "500ml"
+    },
+    {
+        "product_name": "Milk low Fat",
+        "product_image": "images/img_rectangle18.png",
+        "product_old_price": "₹80",
+        "product_new_price": "₹60",
+        "product_quantity": "500ml"
+    },
+    {
+        "product_name": "Milk Bottle",
+        "product_image": "images/img_rectangle18.png",
+        "product_old_price": "₹80",
+        "product_new_price": "₹60",
+        "product_quantity": "500ml"
+    },
+    {
+        "product_name": "Curd Pouch",
+        "product_image": "images/img_rectangle18.png",
+        "product_old_price": "₹80",
+        "product_new_price": "₹60",
+        "product_quantity": "500ml"
+    },
+    {
+        "product_name": "Curd Bowl",
+        "product_image": "images/img_rectangle18.png",
+        "product_old_price": "₹80",
+        "product_new_price": "₹60",
+        "product_quantity": "500ml"
+    },
+    {
+        "product_name": "Butter Milk (laasi)",
+        "product_image": "images/img_rectangle18.png",
+        "product_old_price": "₹80",
+        "product_new_price": "₹60",
+        "product_quantity": "500ml"
+    },
+    {
+        "product_name": "Lassi",
+        "product_image": "images/imgRectangle4888x96",
+        "product_old_price": "₹80",
+        "product_new_price": "₹60",
+        "product_quantity": "500ml"
+    }
+]

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
-import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
 import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
 import 'package:talenthub/presentation/product_screen/product_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_1.dart';
@@ -9,7 +8,6 @@ import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_outlined_button.dart';
-import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
 
 class CurdScreen extends StatelessWidget {
   const CurdScreen({Key? key}) : super(key: key);

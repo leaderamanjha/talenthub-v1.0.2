@@ -89,8 +89,7 @@ class MilkScreen extends StatelessWidget {
                                   alignment: Alignment.topLeft,
                                   children: [
                                     CustomImageView(
-                                        imagePath:
-                                            ImageConstant.imgRectangle1888x96,
+                                        imagePath:ImageConstant.imgRectangle1888x96,
                                         height: 88.v,
                                         width: 96.h,
                                         alignment: Alignment.topLeft,

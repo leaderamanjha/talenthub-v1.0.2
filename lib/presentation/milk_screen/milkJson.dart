@@ -14,7 +14,7 @@ import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_outlined_button.dart';
 
-class Milk2Screen extends StatelessWidget {
+class MilkJson extends StatelessWidget {
 
   Future<List<ProductDataModel>>ReadJsonData() async{
     final jsondata = await rootBundle.loadString('assets/json/product_data.json');
@@ -24,7 +24,7 @@ class Milk2Screen extends StatelessWidget {
 
   }
   
-  const Milk2Screen({Key? key}) : super(key: key);
+  const MilkJson({Key? key}) : super(key: key);
   
 
   @override
@@ -99,7 +99,27 @@ class Milk2Screen extends StatelessWidget {
                           }
                          else if(data.hasData){
                          return ListView.builder(itemBuilder: (context,index){
-                          return Card( child: Stack(
+                          return Card( 
+                           elevation:0,
+                           margin: EdgeInsets.only(
+                                              left: 84.h, top: 28.v),
+                                              
+
+                    );
+
+                  });
+
+                }
+                else{
+                  return Center(child: CircularProgressIndicator(),);
+
+                }
+              },
+                          ),
+                          SizedBox(
+                              height: 824.v,
+                              width: double.maxFinite,
+                              child: Stack(
                                   alignment: Alignment.topLeft,
                                   children: [
                                     CustomImageView(
@@ -162,7 +182,8 @@ class Milk2Screen extends StatelessWidget {
                                             child: Text("500ml",
                                                 style: theme
                                                     .textTheme.labelMedium))),
-                                      Align(
+                                   
+                                    Align(
                                         alignment: Alignment.topCenter,
                                         child: Padding(
                                             padding:
@@ -192,7 +213,25 @@ class Milk2Screen extends StatelessWidget {
                                                       ]),
                                                   
                                                 ]))),
-                                                                                    Align(
+                                    Align(
+                                        alignment: Alignment.topRight,
+                                        child: Container(
+                                            margin: EdgeInsets.only(
+                                                top: 175.v, right: 35.h),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 30.h,
+                                                vertical: 2.v),
+                                            decoration: AppDecoration
+                                                .fillBlueGray
+                                                .copyWith(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .roundedBorder10),
+                                            child: Text(
+                                                "Offer applicable on max 5 units ",
+                                                style: CustomTextStyles
+                                                    .labelLargeBluegray400))),
+                                    Align(
                                         alignment: Alignment.topLeft,
                                         child: Container(
                                             margin: EdgeInsets.only(
@@ -226,43 +265,6 @@ class Milk2Screen extends StatelessWidget {
                                         buttonTextStyle:
                                             CustomTextStyles.labelLarge13,
                                         alignment: Alignment.topRight),
-                         ] ));
-
-                  });
-
-                }
-                else{
-                  return Center(child: CircularProgressIndicator(),);
-
-                }
-              },
-                          ),
-                          SizedBox(
-                              height: 824.v,
-                              width: double.maxFinite,
-                              child: Stack(
-                                  alignment: Alignment.topLeft,
-                                  children: [
-                                    
-                                    Align(
-                                        alignment: Alignment.topRight,
-                                        child: Container(
-                                            margin: EdgeInsets.only(
-                                                top: 175.v, right: 35.h),
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 30.h,
-                                                vertical: 2.v),
-                                            decoration: AppDecoration
-                                                .fillBlueGray
-                                                .copyWith(
-                                                    borderRadius:
-                                                        BorderRadiusStyle
-                                                            .roundedBorder10),
-                                            child: Text(
-                                                "Offer applicable on max 5 units ",
-                                                style: CustomTextStyles
-                                                    .labelLargeBluegray400))),
-
                                     
                                     Align(
                                         alignment: Alignment.centerLeft,

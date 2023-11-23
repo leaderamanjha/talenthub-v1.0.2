@@ -2,46 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
 import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
-import 'package:talenthub/presentation/milk_screen/productDataModel.dart';
 import 'package:talenthub/presentation/product_screen/product_screen.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_1.dart';
 import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_outlined_button.dart';
-import 'dart:convert';
-import 'package:flutter/services.dart';
 
 class LassiScreen extends StatelessWidget {
   const LassiScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-      Future<String> loadJsonData() async {
-      return await rootBundle.loadString('assets/json/product_data.json');
-    }
-
-    return FutureBuilder<String>(
-      future: loadJsonData(),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasError) {
-            return Center(child: Text('Error loading JSON'));
-          }
-
-          final Map<String, dynamic> jsonData = json.decode(snapshot.data!);
-          final productDataModel = ProductDataModel(
-            title: jsonData['title'],
-            subtitle: jsonData['subtitle'],
-            subscribeText: jsonData['subscribeText'],
-            addText: jsonData['addText'],
-            quantity: jsonData['quantity'],
-            price: jsonData['price'],
-            originalPrice: jsonData['originalPrice'],
-            discount: jsonData['discount'],
-            savingText: jsonData['savingText'],
-            imagePath: jsonData['imagePath'],
-          );
     mediaQueryData = MediaQuery.of(context);
     return SafeArea(
         child: Scaffold(
@@ -112,7 +84,7 @@ class LassiScreen extends StatelessWidget {
                                   alignment: Alignment.topLeft,
                                   children: [
                                     CustomImageView(
-                                        imagePath: productDataModel.imagePath,
+                                        imagePath: ImageConstant.imgRectangle47,
                                         height: 88.v,
                                         width: 96.h,
                                         alignment: Alignment.topLeft,
@@ -126,7 +98,7 @@ class LassiScreen extends StatelessWidget {
                                         child: Padding(
                                             padding: EdgeInsets.only(
                                                 top: 11.v, right: 155.h),
-                                            child: Text(productDataModel.title,
+                                            child: Text("Butter Milk (Lassi)",
                                                 style: CustomTextStyles
                                                     .labelLargeBlack90012))),
                                     
@@ -143,7 +115,7 @@ class LassiScreen extends StatelessWidget {
                                                   CustomElevatedButton(
                                                       height: 22.v,
                                                       width: 55.h,
-                                                      text: productDataModel.subtitle,
+                                                      text: "Popular",
                                                       buttonStyle:
                                                           CustomButtonStyles
                                                               .none,
@@ -153,7 +125,7 @@ class LassiScreen extends StatelessWidget {
                                                   CustomElevatedButton(
                                                       height: 35.v,
                                                       width: 77.h,
-                                                      text: productDataModel.subscribeText,
+                                                      text: "Subscribe",
                                                       buttonStyle:
                                                           CustomButtonStyles
                                                               .fillGreenA,
@@ -162,13 +134,13 @@ class LassiScreen extends StatelessWidget {
                                                               .labelMediumOnPrimary),
                                                   SizedBox(height: 5.v),
                                                   CustomOutlinedButton(
-                                                      width: 77.h, text: productDataModel.addText)
+                                                      width: 77.h, text: "ADD")
                                                 ]))),
                                     Align(
                                         alignment: Alignment.topCenter,
                                         child: Padding(
                                             padding: EdgeInsets.only(top: 29.v),
-                                            child: Text(productDataModel.quantity,
+                                            child: Text("500ml",
                                                 style: theme
                                                     .textTheme.labelMedium))),
                                     
@@ -185,14 +157,14 @@ class LassiScreen extends StatelessWidget {
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        Text(productDataModel.price,
+                                                        Text("₹60",
                                                             style: CustomTextStyles
                                                                 .labelMediumBlack900),
                                                         Padding(
                                                             padding:
                                                                 EdgeInsets.only(
                                                                     left: 16.h),
-                                                            child: Text(productDataModel.originalPrice,
+                                                            child: Text(" ₹80",
                                                                 style: theme
                                                                     .textTheme
                                                                     .labelMedium!
@@ -232,14 +204,14 @@ class LassiScreen extends StatelessWidget {
                                                     borderRadius:
                                                         BorderRadiusStyle
                                                             .roundedBorder4),
-                                            child: Text(productDataModel.discount,
+                                            child: Text("30% OFF",
                                                 style: CustomTextStyles
                                                     .labelSmallBlack900))),
                                     CustomElevatedButton(
                                         height: 29.v,
                                         width: 299.h,
                                         text:
-                                            productDataModel.savingText,
+                                            "You are saving ₹20 (30% OFF)With VIP ",
                                         margin: EdgeInsets.only(
                                             top: 137.v, right: 7.h),
                                         rightIcon: Container(

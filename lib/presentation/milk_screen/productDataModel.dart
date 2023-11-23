@@ -1,25 +1,25 @@
 class ProductDataModel {
-  int? id;
-  String? name;
-  String? image;
-  String? oldPrice;
-  String? price;
-  String? quantity;
+  final String title;
+  final String subtitle;
+  final String subscribeText;
+  final String addText;
+  final String quantity;
+  final String price;
+  final String originalPrice;
+  final String discount;
+  final String savingText;
+  final String imagePath;
 
   ProductDataModel({
-      this.id, 
-      this.name, 
-      this.image, 
-      this.oldPrice, 
-      this.price, 
-      this.quantity});
-
-  ProductDataModel.fromJson(Map<String,dynamic> json){
-    id = json['id'];
-    name = json['name'];
-    image = json['image'];
-    oldPrice = json['oldPrice'];
-    price = json['price'];
-    quantity = json['quantity'];
-  }
+    required this.title,
+    required this.subtitle,
+    required this.subscribeText,
+    required this.addText,
+    required this.quantity,
+    required this.price,
+    required this.originalPrice,
+    required this.discount,
+    required this.savingText,
+    required this.imagePath,
+  });
 }

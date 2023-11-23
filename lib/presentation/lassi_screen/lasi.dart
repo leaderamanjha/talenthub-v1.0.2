@@ -1,9 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/presentation/cart_screen/cart_screen.dart';
-import 'package:talenthub/presentation/lassi_screen/lassi_screen.dart';
 import 'package:talenthub/presentation/milk_screen/milk_screen.dart';
 import 'package:talenthub/presentation/milk_screen/productDataModel.dart';
 import 'package:talenthub/presentation/product_screen/product_screen.dart';
@@ -12,22 +9,39 @@ import 'package:talenthub/widgets/app_bar/appbar_image_2.dart';
 import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_outlined_button.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart';
 
-class Milk2Screen extends StatelessWidget {
-
-  Future<List<ProductDataModel>>readJsonData() async{
-    final jsondata = await rootBundle.loadString('assets/json/product_data.json');
-    final list = json.decode(jsondata) as List<dynamic>;
-
-    return list.map((e) => ProductDataModel.fromJson(e)).toList();
-
-  }
-  
-  const Milk2Screen({Key? key}) : super(key: key);
-  
+class LassiScreen extends StatelessWidget {
+  const LassiScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+      Future<String> loadJsonData() async {
+      return await rootBundle.loadString('assets/json/product_data.json');
+    }
+
+    return FutureBuilder<String>(
+      future: loadJsonData(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.hasError) {
+            return Center(child: Text('Error loading JSON'));
+          }
+
+          final Map<String, dynamic> jsonData = json.decode(snapshot.data!);
+          final productDataModel = ProductDataModel(
+            title: jsonData['title'],
+            subtitle: jsonData['subtitle'],
+            subscribeText: jsonData['subscribeText'],
+            addText: jsonData['addText'],
+            quantity: jsonData['quantity'],
+            price: jsonData['price'],
+            originalPrice: jsonData['originalPrice'],
+            discount: jsonData['discount'],
+            savingText: jsonData['savingText'],
+            imagePath: jsonData['imagePath'],
+          );
     mediaQueryData = MediaQuery.of(context);
     return SafeArea(
         child: Scaffold(
@@ -90,19 +104,15 @@ class Milk2Screen extends StatelessWidget {
                                                       .labelLargeBluegray400))
                                         ]))
                               ])),
-                          FutureBuilder(
-                          future: readJsonData(),
-                          builder: (context,data){
-                          if(data.hasError){
-                          return Center(child: Text("${data.error}"));
-                          }
-                         else if(data.hasData){
-                         return ListView.builder(itemBuilder: (context,index){
-                          return Card( child: Stack(
+                          SizedBox(height: 3.v),
+                          SizedBox(
+                              height: 824.v,
+                              width: double.maxFinite,
+                              child: Stack(
                                   alignment: Alignment.topLeft,
                                   children: [
                                     CustomImageView(
-                                        imagePath: ImageConstant.imgRectangle18,
+                                        imagePath: productDataModel.imagePath,
                                         height: 88.v,
                                         width: 96.h,
                                         alignment: Alignment.topLeft,
@@ -116,9 +126,10 @@ class Milk2Screen extends StatelessWidget {
                                         child: Padding(
                                             padding: EdgeInsets.only(
                                                 top: 11.v, right: 155.h),
-                                            child: Text("Curd Pouch",
+                                            child: Text(productDataModel.title,
                                                 style: CustomTextStyles
                                                     .labelLargeBlack90012))),
+                                    
                                     Align(
                                         alignment: Alignment.topRight,
                                         child: Padding(
@@ -132,7 +143,7 @@ class Milk2Screen extends StatelessWidget {
                                                   CustomElevatedButton(
                                                       height: 22.v,
                                                       width: 55.h,
-                                                      text: "Popular",
+                                                      text: productDataModel.subtitle,
                                                       buttonStyle:
                                                           CustomButtonStyles
                                                               .none,
@@ -142,7 +153,7 @@ class Milk2Screen extends StatelessWidget {
                                                   CustomElevatedButton(
                                                       height: 35.v,
                                                       width: 77.h,
-                                                      text: "Subscribe",
+                                                      text: productDataModel.subscribeText,
                                                       buttonStyle:
                                                           CustomButtonStyles
                                                               .fillGreenA,
@@ -151,17 +162,17 @@ class Milk2Screen extends StatelessWidget {
                                                               .labelMediumOnPrimary),
                                                   SizedBox(height: 5.v),
                                                   CustomOutlinedButton(
-                                                      width: 77.h, text: "ADD")
+                                                      width: 77.h, text: productDataModel.addText)
                                                 ]))),
-                                    
                                     Align(
                                         alignment: Alignment.topCenter,
                                         child: Padding(
                                             padding: EdgeInsets.only(top: 29.v),
-                                            child: Text("500ml",
+                                            child: Text(productDataModel.quantity,
                                                 style: theme
                                                     .textTheme.labelMedium))),
-                                      Align(
+                                    
+                                    Align(
                                         alignment: Alignment.topCenter,
                                         child: Padding(
                                             padding:
@@ -174,14 +185,14 @@ class Milk2Screen extends StatelessWidget {
                                                       mainAxisAlignment:
                                                           MainAxisAlignment.end,
                                                       children: [
-                                                        Text("₹60",
+                                                        Text(productDataModel.price,
                                                             style: CustomTextStyles
                                                                 .labelMediumBlack900),
                                                         Padding(
                                                             padding:
                                                                 EdgeInsets.only(
                                                                     left: 16.h),
-                                                            child: Text(" ₹80",
+                                                            child: Text(productDataModel.originalPrice,
                                                                 style: theme
                                                                     .textTheme
                                                                     .labelMedium!
@@ -191,58 +202,6 @@ class Milk2Screen extends StatelessWidget {
                                                       ]),
                                                   
                                                 ]))),
-                                                                                    Align(
-                                        alignment: Alignment.topLeft,
-                                        child: Container(
-                                            margin: EdgeInsets.only(
-                                                left: 86.h, top: 13.v),
-                                            padding: EdgeInsets.symmetric(
-                                                horizontal: 5.h, vertical: 1.v),
-                                            decoration: AppDecoration.fillLimeA
-                                                .copyWith(
-                                                    borderRadius:
-                                                        BorderRadiusStyle
-                                                            .roundedBorder4),
-                                            child: Text("30% OFF",
-                                                style: CustomTextStyles
-                                                    .labelSmallBlack900))),
-                                    CustomElevatedButton(
-                                        height: 29.v,
-                                        width: 299.h,
-                                        text:
-                                            "You are saving ₹20 (30% OFF)With VIP ",
-                                        margin: EdgeInsets.only(
-                                            top: 137.v, right: 7.h),
-                                        rightIcon: Container(
-                                            child: CustomImageView(
-                                                imagePath: ImageConstant
-                                                    .imgKisspngemblem,
-                                                height: 16.adaptSize,
-                                                width: 16.adaptSize)),
-                                        buttonStyle: CustomButtonStyles.none,
-                                        decoration: CustomButtonStyles
-                                            .gradientWhiteToYellow,
-                                        buttonTextStyle:
-                                            CustomTextStyles.labelLarge13,
-                                        alignment: Alignment.topRight),
-                         ] ));
-
-                  });
-
-                }
-                else{
-                  return Center(child: CircularProgressIndicator(),);
-
-                }
-              },
-                          ),
-                          SizedBox(
-                              height: 824.v,
-                              width: double.maxFinite,
-                              child: Stack(
-                                  alignment: Alignment.topLeft,
-                                  children: [
-                                    
                                     Align(
                                         alignment: Alignment.topRight,
                                         child: Container(
@@ -261,7 +220,40 @@ class Milk2Screen extends StatelessWidget {
                                                 "Offer applicable on max 5 units ",
                                                 style: CustomTextStyles
                                                     .labelLargeBluegray400))),
-
+                                    Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Container(
+                                            margin: EdgeInsets.only(
+                                                left: 86.h, top: 13.v),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 5.h, vertical: 1.v),
+                                            decoration: AppDecoration.fillLimeA
+                                                .copyWith(
+                                                    borderRadius:
+                                                        BorderRadiusStyle
+                                                            .roundedBorder4),
+                                            child: Text(productDataModel.discount,
+                                                style: CustomTextStyles
+                                                    .labelSmallBlack900))),
+                                    CustomElevatedButton(
+                                        height: 29.v,
+                                        width: 299.h,
+                                        text:
+                                            productDataModel.savingText,
+                                        margin: EdgeInsets.only(
+                                            top: 137.v, right: 7.h),
+                                        rightIcon: Container(
+                                            child: CustomImageView(
+                                                imagePath: ImageConstant
+                                                    .imgKisspngemblem,
+                                                height: 16.adaptSize,
+                                                width: 16.adaptSize)),
+                                        buttonStyle: CustomButtonStyles.none,
+                                        decoration: CustomButtonStyles
+                                            .gradientWhiteToYellow,
+                                        buttonTextStyle:
+                                            CustomTextStyles.labelLarge13,
+                                        alignment: Alignment.topRight),
                                     
                                     Align(
                                         alignment: Alignment.centerLeft,
@@ -450,7 +442,7 @@ class Milk2Screen extends StatelessWidget {
                                             child: SizedBox(
                                                 width: 308.h,
                                                 child: Divider()))),
-                                   
+                                    
                                   ]))
                         ])))));
   }
@@ -551,63 +543,9 @@ class Milk2Screen extends StatelessWidget {
   }
 
   onTapImgImageseven(BuildContext context) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) => LassiScreen(),
-        transitionsBuilder: (context, animation1, animation2, child) {
-          const begin = Offset(-1.0, 0.0); // Changed the initial offset
-          const end = Offset.zero;
-          const curve = Curves.easeInOut;
-
-          var tween =
-              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-          var offsetAnimation = animation1.drive(tween);
-
-          // Use ScaleTransition for horizontal flip
-          return ScaleTransition(
-            scale: Tween<double>(begin: -1.0, end: 1.0).animate(animation1),
-            alignment: Alignment.center,
-            child: SlideTransition(
-              position: offsetAnimation,
-              child: child,
-            ),
-          );
-        },
-        transitionDuration: Duration(milliseconds: 300),
-      ),
-    );
+    // TODO: implement Actions
   }
-
   onTapTxtButtermilk(BuildContext context) {
-    Navigator.push(
-      context,
-      PageRouteBuilder(
-        pageBuilder: (context, animation1, animation2) => LassiScreen(),
-        transitionsBuilder: (context, animation1, animation2, child) {
-          const begin = Offset(-1.0, 0.0); // Changed the initial offset
-          const end = Offset.zero;
-          const curve = Curves.easeInOut;
-
-          var tween =
-              Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-          var offsetAnimation = animation1.drive(tween);
-
-          // Use ScaleTransition for horizontal flip
-          return ScaleTransition(
-            scale: Tween<double>(begin: -1.0, end: 1.0).animate(animation1),
-            alignment: Alignment.center,
-            child: SlideTransition(
-              position: offsetAnimation,
-              child: child,
-            ),
-          );
-        },
-        transitionDuration: Duration(milliseconds: 300),
-      ),
-    );
+    // TODO: implement Actions
   }
 }
-

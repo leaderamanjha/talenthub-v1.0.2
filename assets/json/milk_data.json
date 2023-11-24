@@ -1,0 +1,27 @@
+[
+    {
+  "title": "Milk Medium Fat",
+  "title1": "Milk Full fat",
+  "title2": "Milk Low Fat",
+  "title3": "Milk Bottle",
+  "subtitle": "Popular",
+  "subscribeText": "Subscribe",
+  "addText": "ADD",
+  "quantity": "500ml",
+  "price": "₹60",
+  "price1": "₹60",
+  "price2": "₹60",
+  "price3": "₹60",
+  "originalPrice": "₹80",
+  "originalPrice1": "₹80",
+  "originalPrice2": "₹80",
+  "originalPrice3": "₹80",
+  "discount": "30% OFF",
+  "savingText": "You are saving ₹20 (30% OFF) With VIP",
+  "imagePath": "assets/images/img_rectangle18_88x96.png",
+  "imagePath1": "assets/images/img_rectangle48.png",
+  "imagePath2": "assets/images/img_rectangle55.png",
+  "imagePath3": "assets/images/img_rectangle62.png"
+
+  }
+]

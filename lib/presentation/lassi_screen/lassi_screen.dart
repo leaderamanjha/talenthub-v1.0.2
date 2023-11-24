@@ -16,13 +16,9 @@ class LassiScreen extends StatelessWidget {
   const LassiScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) 
-  
-  
-  
-  
-  
-  {
+  Widget build(BuildContext context) {
+    mediaQueryData = MediaQuery.of(context);
+
     return FutureBuilder<List<ProductDataModel>>(
       future: _loadProductData(),
       builder: (context, snapshot) {
@@ -115,6 +111,15 @@ class LassiScreen extends StatelessWidget {
                                 onTap: () {
                                   onTapImgImage(context);
                                 }),
+                            CustomImageView(
+                                imagePath: lassiItem.imagePath1,
+                                height: 88.v,
+                                width: 96.h,
+                                alignment: Alignment.topLeft,
+                                margin: EdgeInsets.only(left: 83.h, top: 266.v),
+                                onTap: () {
+                                  onTapImgImage(context);
+                                }),
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Padding(
@@ -126,8 +131,48 @@ class LassiScreen extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topRight,
                                 child: Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 249.v, right: 155.h),
+                                    child: Text(lassiItem.title1,
+                                        style: CustomTextStyles
+                                            .labelLargeBlack90012))),
+                            Align(
+                                alignment: Alignment.topRight,
+                                child: Padding(
                                     padding:
                                         EdgeInsets.only(top: 14.v, right: 10.h),
+                                    child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.end,
+                                        children: [
+                                          CustomElevatedButton(
+                                              height: 22.v,
+                                              width: 55.h,
+                                              text: lassiItem.subtitle,
+                                              buttonStyle:
+                                                  CustomButtonStyles.none,
+                                              decoration: CustomButtonStyles
+                                                  .gradientGreenAToYellowADecoration),
+                                          SizedBox(height: 18.v),
+                                          CustomElevatedButton(
+                                              height: 35.v,
+                                              width: 77.h,
+                                              text: lassiItem.subscribeText,
+                                              buttonStyle:
+                                                  CustomButtonStyles.fillGreenA,
+                                              buttonTextStyle: CustomTextStyles
+                                                  .labelMediumOnPrimary),
+                                          SizedBox(height: 5.v),
+                                          CustomOutlinedButton(
+                                              width: 77.h,
+                                              text: lassiItem.addText)
+                                        ]))),
+                            Align(
+                                alignment: Alignment.topRight,
+                                child: Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 249.v, right: 10.h),
                                     child: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         crossAxisAlignment:
@@ -164,6 +209,12 @@ class LassiScreen extends StatelessWidget {
                             Align(
                                 alignment: Alignment.topCenter,
                                 child: Padding(
+                                    padding: EdgeInsets.only(top: 268.v),
+                                    child: Text(lassiItem.quantity,
+                                        style: theme.textTheme.labelMedium))),
+                            Align(
+                                alignment: Alignment.topCenter,
+                                child: Padding(
                                     padding: EdgeInsets.only(right: 152.h),
                                     child: Column(
                                         mainAxisSize: MainAxisSize.min,
@@ -181,6 +232,27 @@ class LassiScreen extends StatelessWidget {
                                                         left: 16.h),
                                                     child: Text(
                                                         lassiItem.originalPrice,
+                                                        style: theme.textTheme
+                                                            .labelMedium!
+                                                            .copyWith(
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .lineThrough)))
+                                              ]),
+                                          SizedBox(height: 222.v),
+                                          Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
+                                              children: [
+                                                Text(lassiItem.price1,
+                                                    style: CustomTextStyles
+                                                        .labelMediumBlack900),
+                                                Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 16.h),
+                                                    child: Text(
+                                                        lassiItem
+                                                            .originalPrice1,
                                                         style: theme.textTheme
                                                             .labelMedium!
                                                             .copyWith(
@@ -218,11 +290,41 @@ class LassiScreen extends StatelessWidget {
                                     child: Text(lassiItem.discount,
                                         style: CustomTextStyles
                                             .labelSmallBlack900))),
+                            Align(
+                                alignment: Alignment.topLeft,
+                                child: Container(
+                                    margin:
+                                        EdgeInsets.only(left: 85.h, top: 251.v),
+                                    padding: EdgeInsets.symmetric(
+                                        horizontal: 5.h, vertical: 1.v),
+                                    decoration: AppDecoration.fillLimeA
+                                        .copyWith(
+                                            borderRadius: BorderRadiusStyle
+                                                .roundedBorder4),
+                                    child: Text(lassiItem.discount,
+                                        style: CustomTextStyles
+                                            .labelSmallBlack900))),
                             CustomElevatedButton(
                                 height: 29.v,
                                 width: 299.h,
                                 text: lassiItem.savingText,
                                 margin: EdgeInsets.only(top: 137.v, right: 7.h),
+                                rightIcon: Container(
+                                    child: CustomImageView(
+                                        imagePath:
+                                            ImageConstant.imgKisspngemblem,
+                                        height: 16.adaptSize,
+                                        width: 16.adaptSize)),
+                                buttonStyle: CustomButtonStyles.none,
+                                decoration:
+                                    CustomButtonStyles.gradientWhiteToYellow,
+                                buttonTextStyle: CustomTextStyles.labelLarge13,
+                                alignment: Alignment.topRight),
+                            CustomElevatedButton(
+                                height: 29.v,
+                                width: 299.h,
+                                text: lassiItem.savingText,
+                                margin: EdgeInsets.only(top: 375.v, right: 8.h),
                                 rightIcon: Container(
                                     child: CustomImageView(
                                         imagePath:
@@ -537,15 +639,19 @@ class LassiScreen extends StatelessWidget {
     return jsonData
         .map((item) => ProductDataModel(
               title: item['title'],
+              title1: item['title1'],
               subtitle: item['subtitle'],
               subscribeText: item['subscribeText'],
               addText: item['addText'],
               quantity: item['quantity'],
               price: item['price'],
+              price1: item['price1'],
               originalPrice: item['originalPrice'],
+              originalPrice1: item['originalPrice1'],
               discount: item['discount'],
               savingText: item['savingText'],
               imagePath: item['imagePath'],
+              imagePath1: item['imagePath1'],
             ))
         .toList();
   }

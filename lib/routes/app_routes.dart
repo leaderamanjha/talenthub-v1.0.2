@@ -34,6 +34,8 @@ import 'package:talenthub/presentation/view_current_offers_screen/view_current_o
 import 'package:talenthub/presentation/app_navigation_screen/app_navigation_screen.dart';
 import 'package:talenthub/presentation/product_screen/product2.dart';
 import 'package:talenthub/presentation/product_screen/product1.dart';
+import 'package:talenthub/presentation/mobile_number_screen/otp_login_page.dart';
+import 'package:talenthub/presentation/mobile_number_screen/otp_verify_page.dart';
 
 class AppRoutes {
   static const String splashScreen = '/splash_screen';
@@ -43,6 +45,9 @@ class AppRoutes {
   static const String welcomeScreen = '/welcome_screen';
 
   static const String mobileNumberScreen = '/mobile_number_screen';
+
+  static const String loginPage = '/mobile_number_screen/otp_login_page';
+  static const String otpVerifyPage = '/mobile_number_screen/otp_verify_page';
 
   static const String otpVerificationScreen = '/otp_verification_screen';
 
@@ -114,6 +119,8 @@ class AppRoutes {
     offersScreen: (context) => OffersScreen(),
     welcomeScreen: (context) => WelcomeScreen(),
     mobileNumberScreen: (context) => MobileNumberScreen(),
+    loginPage: (context) => LoginPage(),
+    otpVerifyPage:(context) =>OTPVerifyPage(),
     otpVerificationScreen: (context) => OtpVerificationScreen(),
     vipScreen: (context) => VipScreen(),
     homeScreenContainer1Screen: (context) => HomeScreenContainer1Screen(),

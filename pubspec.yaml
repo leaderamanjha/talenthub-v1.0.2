@@ -6,6 +6,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  sms_autofill: ^2.3.0
+  snippet_coder_utils: ^1.0.15
   convert: 3.1.1
   cached_network_image: ^3.2.1
   flutter_svg: ^2.0.9
@@ -20,6 +22,8 @@ flutter:
     - assets/
     - assets/images/
     - assets/json/product_data.json
+    - assets/json/milk_data.json
+    - assets/json/curd_data.json
 
   fonts:
     - family: Poppins

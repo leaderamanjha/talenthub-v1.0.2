@@ -19,8 +19,8 @@ import 'package:talenthub/widgets/custom_outlined_button.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 
-class LassiScreen extends StatelessWidget {
-  const LassiScreen({Key? key}) : super(key: key);
+class MilkScreen extends StatelessWidget {
+  const MilkScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:talenthub/core/app_export.dart';
+import 'package:talenthub/presentation/mobile_number_screen/otp_login_page.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_text_form_field.dart';
 
@@ -92,7 +93,26 @@ class WelcomeScreen extends StatelessWidget {
   /// The [BuildContext] parameter is used to build the navigation stack.
   /// When the action is triggered, this function uses the [Navigator] widget
   /// to push the named route for the mobileNumberScreen.
-  onTapContinue(BuildContext context) {
-    Navigator.pushNamed(context, AppRoutes.otpVerificationScreen);
-  }
+   onTapContinue(BuildContext context) {
+  Navigator.push(
+    context,
+    PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => LoginPage(),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        const begin = Offset(0.0, 1.0);
+        const end = Offset.zero;
+        const curve = Curves.easeInOut;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        var offsetAnimation = animation.drive(tween);
+
+        return SlideTransition(
+          position: offsetAnimation,
+          child: child,
+        );
+      },
+    ),
+  );
+}
 }

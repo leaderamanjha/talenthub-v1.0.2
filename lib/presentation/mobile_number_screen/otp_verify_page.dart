@@ -34,23 +34,6 @@ class _OTPVerifyPageState extends State<OTPVerifyPage> {
 
     SmsAutoFill().listenForCode.call();
 
-    // autoFill = PinFieldAutoFill(
-    //   decoration: UnderlineDecoration(
-    //     textStyle: const TextStyle(fontSize: 20, color: Colors.black),
-    //     colorBuilder: FixedColorBuilder(Colors.black.withOpacity(0.3)),
-    //   ),
-    //   currentCode: _otpCode,
-    //   codeLength: _otpCodeLength,
-    //   onCodeSubmitted: (code) {},
-    //   onCodeChanged: (code) {
-    //     print(code);
-    //     if (code!.length == _otpCodeLength) {
-    //       _otpCode = code;
-    //       _enableButton = true;
-    //       FocusScope.of(context).requestFocus(FocusNode());
-    //     }
-    //   },
-    // );
   }
 
   @override

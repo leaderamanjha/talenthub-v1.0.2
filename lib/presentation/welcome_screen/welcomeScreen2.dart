@@ -93,7 +93,7 @@ class WelcomeScreen extends StatelessWidget {
   /// The [BuildContext] parameter is used to build the navigation stack.
   /// When the action is triggered, this function uses the [Navigator] widget
   /// to push the named route for the mobileNumberScreen.
- onTapContinue(BuildContext context) {
+   onTapContinue(BuildContext context) {
   Navigator.push(
     context,
     PageRouteBuilder(
@@ -115,5 +115,4 @@ class WelcomeScreen extends StatelessWidget {
     ),
   );
 }
-
 }

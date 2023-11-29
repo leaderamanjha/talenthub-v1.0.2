@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:talenthub/presentation/models/login_response_model.dart';
 
+// ignore: unused_import
 import 'config.dart';
 
 class APIService {
@@ -13,7 +14,7 @@ class APIService {
       'Content-Type': 'application/json',
     };
 
-    var url = Uri.http(Config.apiURL, Config.otpLoginAPI);
+    var url = Uri.http("192.168.1.17:5000" , "user/signup");
 
     var response = await client.post(
       url,
@@ -33,7 +34,7 @@ class APIService {
       'Content-Type': 'application/json',
     };
 
-    var url = Uri.http(Config.apiURL, Config.verifyOTPAPI);
+    var url = Uri.http("192.168.1.17:5000/api", "user/signup/verify");
 
     var response = await client.post(
       url,

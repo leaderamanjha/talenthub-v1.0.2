@@ -1,14 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:talenthub/core/app_export.dart';
-import 'package:talenthub/presentation/mobile_number_screen/otp_login_page.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_text_form_field.dart';
 
-// ignore_for_file: must_be_immutable
+// ignore: must_be_immutable
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({Key? key}) : super(key: key);
 
-  TextEditingController mobileNumberController = TextEditingController();
+  TextEditingController numberController = TextEditingController();
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -16,103 +18,104 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     mediaQueryData = MediaQuery.of(context);
     return SafeArea(
-        child: Scaffold(
-            backgroundColor: theme.colorScheme.onPrimary,
-            resizeToAvoidBottomInset: false,
-            body: Form(
-                key: _formKey,
-                child: Container(
-                    width: double.maxFinite,
-                    padding: EdgeInsets.symmetric(vertical: 30.v),
-                    child: Column(children: [
-                      Container(
-                          margin: EdgeInsets.only(left: 2.h, top: 18.v),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 73.h, vertical: 14.v),
-                          decoration: AppDecoration.fillOnPrimary,
-                          child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                SizedBox(height: 15.v),
-                                CustomImageView(
-                                    imagePath: ImageConstant.imgDelivery2,
-                                    height: 236.v,
-                                    width: 240.h),
-                                SizedBox(height: 32.v),
-                                Text("Farm To home",
-                                    style: CustomTextStyles.titleMediumPrimary)
-                              ])),
-                      SizedBox(height: 49.v),
-                      CustomImageView(
-                          svgPath: ImageConstant.imgGroup58,
-                          height: 5.v,
-                          width: 69.h),
-                      Spacer(),
-                      Text("Get Started",
-                          style: CustomTextStyles.bodyMedium14_1),
-                      CustomTextFormField(
-                          controller: mobileNumberController,
-                          margin: EdgeInsets.only(
-                              left: 26.h, top: 30.v, right: 26.h),
-                          hintText: "Enter Mobile Number",
-                          textInputAction: TextInputAction.done,
-                          textInputType: TextInputType.phone,
-                          prefix: Container(
-                              margin: EdgeInsets.fromLTRB(8.h, 9.v, 30.h, 9.v),
-                              child: CustomImageView(
-                                  svgPath: ImageConstant.imgLaptop)),
-                          prefixConstraints: BoxConstraints(maxHeight: 47.v),
-                          contentPadding: EdgeInsets.only(
-                              top: 10.v, right: 30.h, bottom: 10.v),
-                          borderDecoration:
-                              TextFormFieldStyleHelper.outlineBlueGray,
-                          filled: false),
-                      CustomElevatedButton(
-                          text: "Continue",
-                          margin: EdgeInsets.only(
-                              left: 26.h, top: 27.v, right: 26.h),
-                          buttonStyle: CustomButtonStyles.fillPrimary,
-                          buttonTextStyle: theme.textTheme.bodyLarge!,
-                          onTap: () {
-                            onTapContinue(context);
-                          }),
-                      SizedBox(height: 15.v),
-                      SizedBox(
-                          width: 133.h,
-                          child: Text(
-                              "By Signing up you agree to \nTnc and Privacy Policy",
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              textAlign: TextAlign.center,
-                              style: CustomTextStyles.bodySmall10))
-                    ])))));
+      child: Scaffold(
+        backgroundColor: theme.colorScheme.onPrimary,
+        resizeToAvoidBottomInset: false,
+        body: Form(
+          key: _formKey,
+          child: Container(
+            width: double.maxFinite,
+            padding: EdgeInsets.symmetric(horizontal: 26.h, vertical: 30.v),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(left: 4.h, top: 5.v),
+                  child: Text("Get Started",
+                      style: CustomTextStyles.bodyMedium14_1),
+                ),
+                SizedBox(height: 16.v),
+                CustomTextFormField(
+                  controller: numberController,
+                  hintText: "Enter Mobile Number",
+                  textInputAction: TextInputAction.done,
+                  textInputType: TextInputType.phone,
+                  prefix: Container(
+                    margin: EdgeInsets.fromLTRB(8.h, 9.v, 30.h, 9.v),
+                    child: CustomImageView(svgPath: ImageConstant.imgLaptop),
+                  ),
+                  prefixConstraints: BoxConstraints(maxHeight: 47.v),
+                  contentPadding:
+                      EdgeInsets.only(top: 10.v, right: 30.h, bottom: 10.v),
+                  borderDecoration: TextFormFieldStyleHelper.outlineBlueGray,
+                  filled: false,
+                ),
+                Spacer(),
+                CustomElevatedButton(
+                  text: "Continue",
+                  buttonStyle: CustomButtonStyles.fillPrimary,
+                  buttonTextStyle: theme.textTheme.bodyLarge!,
+                  onTap: () {
+                    onTapContinue(context);
+                  },
+                ),
+                SizedBox(height: 15.v),
+                Align(
+                  alignment: Alignment.center,
+                  child: SizedBox(
+                    width: 133.h,
+                    child: Text(
+                      "By Signing up you agree to \nTnc and Privacy Policy",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.center,
+                      style: CustomTextStyles.bodySmall10,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
-  /// Navigates to the mobileNumberScreen when the action is triggered.
-  ///
-  /// The [BuildContext] parameter is used to build the navigation stack.
-  /// When the action is triggered, this function uses the [Navigator] widget
-  /// to push the named route for the mobileNumberScreen.
-   onTapContinue(BuildContext context) {
-  Navigator.push(
-    context,
-    PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => LoginPage(),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        const begin = Offset(0.0, 1.0);
-        const end = Offset.zero;
-        const curve = Curves.easeInOut;
+  onTapContinue(BuildContext context) async {
+    if (_formKey.currentState?.validate() ?? false) {
+      final String mobileNumber = numberController.text;
+      final String apiUrl = 'http://192.168.1.17:5000/api/user/signup';
 
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+      try {
+        // Send mobile number to backend for OTP generation
+        final http.Response response =
+            await http.post(Uri.parse(apiUrl), body: {
+          'number': mobileNumber,
+        });
 
-        var offsetAnimation = animation.drive(tween);
-
-        return SlideTransition(
-          position: offsetAnimation,
-          child: child,
-        );
-      },
-    ),
-  );
-}
+        if (response.statusCode == 200) {
+          try {
+            Navigator.pushNamed(
+              context,
+              AppRoutes.otpVerificationScreen,
+            );
+          } catch (e) {
+            // If parsing as JSON fails, check if the response body contains a success message
+            if (response.body.toLowerCase().contains('otp send successfully')) {
+              print('Otp sent successfully!');
+              // Handle success as needed
+            } else {
+              print('Error parsing response body as JSON: ${response.body}');
+            }
+          }
+        } else {
+          // Handle non-200 status codes
+          print('Error: ${response.statusCode}');
+        }
+      } catch (error) {
+        // Handle network error
+        print('Error: $error');
+      }
+    }
+  }
 }

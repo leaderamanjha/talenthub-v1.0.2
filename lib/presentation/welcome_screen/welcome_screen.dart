@@ -1,16 +1,16 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:talenthub/core/app_export.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_text_form_field.dart';
+// ignore: unused_import
+import 'dart:convert';
 
 // ignore: must_be_immutable
 class WelcomeScreen extends StatelessWidget {
   WelcomeScreen({Key? key}) : super(key: key);
 
-  TextEditingController numberController = TextEditingController();
+  TextEditingController mobileNumberController = TextEditingController();
 
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -36,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16.v),
                 CustomTextFormField(
-                  controller: numberController,
+                  controller: mobileNumberController,
                   hintText: "Enter Mobile Number",
                   textInputAction: TextInputAction.done,
                   textInputType: TextInputType.phone,
@@ -83,7 +83,7 @@ class WelcomeScreen extends StatelessWidget {
 
   onTapContinue(BuildContext context) async {
     if (_formKey.currentState?.validate() ?? false) {
-      final String mobileNumber = numberController.text;
+      final String mobileNumber = mobileNumberController.text;
       final String apiUrl = 'http://192.168.1.17:5000/api/user/signup';
 
       try {
@@ -98,6 +98,7 @@ class WelcomeScreen extends StatelessWidget {
             Navigator.pushNamed(
               context,
               AppRoutes.otpVerificationScreen,
+              arguments: {'number': mobileNumber},
             );
           } catch (e) {
             // If parsing as JSON fails, check if the response body contains a success message

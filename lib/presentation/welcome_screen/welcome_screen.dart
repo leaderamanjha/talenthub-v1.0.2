@@ -84,7 +84,7 @@ class WelcomeScreen extends StatelessWidget {
   onTapContinue(BuildContext context) async {
     if (_formKey.currentState?.validate() ?? false) {
       final String mobileNumber = mobileNumberController.text;
-      final String apiUrl = 'http://192.168.1.17:5000/api/user/signup';
+      final String apiUrl = 'http://192.168.1.13:5000/api/user/signup';
 
       try {
         // Send mobile number to backend for OTP generation

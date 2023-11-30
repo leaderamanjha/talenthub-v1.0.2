@@ -148,11 +148,11 @@ class OtpVerificationScreen extends StatelessWidget {
   onTapVerifyProceed(BuildContext context, AuthProvider authProvider) async {
     final String enteredOtp = otpController.text;
     final String apiUrl =
-        "http://192.168.1.17:5000/api/user/signup/verify"; // Replace with your actual backend URL
+        'http://192.168.1.13:5000/api/user/signup/verify'; // Replace with your actual backend URL
 
     try {
       final http.Response response = await http.post(Uri.parse(apiUrl), body: {
-        'number': '2025',
+        'number': '2028',
         'otp': enteredOtp,
       });
 

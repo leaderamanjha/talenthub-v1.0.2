@@ -16,7 +16,7 @@ import 'package:talenthub/widgets/custom_outlined_button.dart';
 class CurdScreen extends StatelessWidget {
   Future<Map<String, dynamic>?> fetchData() async {
     final response = await http
-        .get(Uri.parse('http://192.168.1.13:5000/api/product/getallproduct'));
+        .post(Uri.parse('http://192.168.1.13:5000/api/product/getallproduct'));
 
     if (response.statusCode == 200) {
       return json.decode(response.body);

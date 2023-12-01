@@ -1,4 +1,7 @@
+// ignore_for_file: unused_import
+
 import 'package:flutter/material.dart';
+import 'package:talenthub/presentation/home_screen_container_page/home_screen_container_page.dart';
 import 'package:talenthub/presentation/welcome_screen/welcome_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
       // Add another delay before navigating to the home screen
       Future.delayed(Duration(seconds: 2), () {
         Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => WelcomeScreen(),
+          builder: (context) => HomeScreenContainerPage(),
         ));
       });
     });

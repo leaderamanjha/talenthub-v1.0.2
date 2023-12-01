@@ -152,7 +152,7 @@ class OtpVerificationScreen extends StatelessWidget {
 
     try {
       final http.Response response = await http.post(Uri.parse(apiUrl), body: {
-        'number': '2028',
+        'number': '1777',
         'otp': enteredOtp,
       });
 

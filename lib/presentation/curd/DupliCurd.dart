@@ -35,10 +35,11 @@ class _CurdScreenState extends State<CurdScreen> {
     super.initState();
     fetchData = _fetchData();
   }
-
+// http://192.168.1.13:5000/api/product/getallproduct
   Future<List<Map<String, dynamic>>?> _fetchData() async {
     final response = await http.post(
       Uri.parse('http://192.168.1.13:5000/api/product/getallproduct'),
+
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },

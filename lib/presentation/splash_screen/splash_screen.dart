@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     // Start the animation after a delay
     Future.delayed(Duration(seconds: 1), () {
       setState(() {
-        imageSize = 250.0; // Increase the size
+        imageSize = 250.0; 
         imageOpacity = 1.0; // Show the image
       });
 

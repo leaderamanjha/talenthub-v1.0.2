@@ -35,11 +35,10 @@ class _CurdScreenState extends State<CurdScreen> {
     super.initState();
     fetchData = _fetchData();
   }
-// http://192.168.1.13:5000/api/product/getallproduct
+
   Future<List<Map<String, dynamic>>?> _fetchData() async {
     final response = await http.post(
       Uri.parse('http://192.168.1.13:5000/api/product/getallproduct'),
-
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -98,9 +97,10 @@ class _CurdScreenState extends State<CurdScreen> {
                       ]),
                   body: SizedBox(
                       width: mediaQueryData.size.width,
-
+                      child: SingleChildScrollView(
+                          padding: EdgeInsets.only(top: 7.v),
                           child: Column(
-                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Padding(
                                     padding: EdgeInsets.only(left: 7.h),
@@ -137,196 +137,214 @@ class _CurdScreenState extends State<CurdScreen> {
                                                             .labelLargeBluegray400))
                                               ]))
                                     ])),
-                                SizedBox(height: 10),
-                                Expanded(
-                                    child: ListView.builder(
-                                  itemCount: productList.length,
-                                  itemBuilder: (context, index) {
-                                    var productData = productList[index];
-                                    return ProductItem(
-                                        productData: productData);
-                                  },
-                                )),
                                 SizedBox(height: 3.v),
-                                SizedBox(
-                                    height: 824.v,
-                                    width: double.maxFinite,
-                                    child: Stack(
-                                        alignment: Alignment.topLeft,
-                                        children: [
-                                          Align(
-                                              alignment: Alignment.topLeft,
-                                              child: Column(
-                                                  mainAxisSize:
-                                                      MainAxisSize.min,
-                                                  children: [
-                                                    SizedBox(
-                                                        height: 86.v,
-                                                        width: 85.h,
-                                                        child: GestureDetector(
-                                                            onTap: () {
-                                                              onTapColumnMilk(
-                                                                  context);
-                                                            },
-                                                            child: Stack(
-                                                                alignment:
-                                                                    Alignment
-                                                                        .topCenter,
-                                                                children: [
-                                                                  Align(
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .bottomCenter,
-                                                                      child: Text(
-                                                                          "Milk ",
-                                                                          style:
-                                                                              CustomTextStyles.labelMediumBlack900)),
-                                                                  Align(
-                                                                      alignment:
-                                                                          Alignment
-                                                                              .topCenter,
-                                                                      child: SizedBox(
-                                                                          height: 79.v,
-                                                                          width: 85.h,
-                                                                          child: Stack(alignment: Alignment.center, children: [
-                                                                            Align(
-                                                                                alignment: Alignment.topCenter,
-                                                                                child: GestureDetector(
-                                                                                    onTap: () {
-                                                                                      onTapColumnMilk(context);
-                                                                                    },
-                                                                                    child: Container(height: 52.adaptSize, width: 52.adaptSize, margin: EdgeInsets.only(top: 12.v), decoration: BoxDecoration(color: appTheme.blueGray100, borderRadius: BorderRadius.circular(26.h))))),
-                                                                            Align(
-                                                                                alignment: Alignment.center,
-                                                                                child: SizedBox(
-                                                                                    height: 79.v,
-                                                                                    width: 85.h,
-                                                                                    child: Stack(alignment: Alignment.topRight, children: [
-                                                                                      CustomImageView(imagePath: ImageConstant.imgRectangle45, height: 79.v, width: 85.h, alignment: Alignment.center),
-                                                                                      Align(
-                                                                                          alignment: Alignment.topRight,
-                                                                                          child: Padding(
-                                                                                              padding: EdgeInsets.only(top: 4.v, right: 4.h),
-                                                                                              child: Row(mainAxisAlignment: MainAxisAlignment.end, mainAxisSize: MainAxisSize.min, children: [
-                                                                                                CustomImageView(imagePath: ImageConstant.imgRectangle44, height: 61.v, width: 40.h),
-                                                                                                Padding(padding: EdgeInsets.only(left: 7.h), child: SizedBox(height: 61.v, child: VerticalDivider(width: 4.h, thickness: 4.v, color: appTheme.greenA700, indent: 12.h, endIndent: 5.h)))
-                                                                                              ])))
-                                                                                    ])))
-                                                                          ])))
-                                                                ]))),
-                                                    SizedBox(height: 12.v),
-                                                    SizedBox(
-                                                        height: 77.v,
-                                                        width: 72.h,
-                                                        child: Stack(
-                                                            alignment: Alignment
-                                                                .center,
-                                                            children: [
-                                                              Align(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .topCenter,
-                                                                  child:
-                                                                      GestureDetector(
-                                                                          onTap:
-                                                                              () {
-                                                                            onTapColumnMilk(context);
-                                                                          },
-                                                                          child: Container(
-                                                                              height: 52.adaptSize,
-                                                                              width: 52.adaptSize,
-                                                                              margin: EdgeInsets.only(top: 3.v),
-                                                                              decoration: BoxDecoration(color: appTheme.blueGray100, borderRadius: BorderRadius.circular(26.h))))),
-                                                              Align(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .center,
-                                                                  child: Column(
-                                                                      mainAxisSize:
-                                                                          MainAxisSize
-                                                                              .min,
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .end,
-                                                                      children: [
-                                                                        CustomImageView(
-                                                                            imagePath:
-                                                                                ImageConstant.imgRectangle46,
-                                                                            height: 55.v,
-                                                                            width: 60.h),
-                                                                        Padding(
-                                                                            padding:
-                                                                                EdgeInsets.only(top: 1.v, right: 20.h),
-                                                                            child: Text("Curd", style: theme.textTheme.labelMedium))
-                                                                      ]))
-                                                            ])),
-                                                    SizedBox(height: 14.v),
-                                                    SizedBox(
-                                                        height: 61.v,
-                                                        width: 71.h,
-                                                        child: Stack(
-                                                            alignment: Alignment
-                                                                .center,
-                                                            children: [
-                                                              Align(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .topCenter,
-                                                                  child: Container(
-                                                                      height: 52
-                                                                          .adaptSize,
-                                                                      width: 52
-                                                                          .adaptSize,
-                                                                      margin: EdgeInsets.only(
-                                                                          top: 3
-                                                                              .v),
-                                                                      decoration: BoxDecoration(
-                                                                          color: appTheme
-                                                                              .blueGray100,
-                                                                          borderRadius:
-                                                                              BorderRadius.circular(26.h)))),
-                                                              CustomImageView(
-                                                                  imagePath:
-                                                                      ImageConstant
-                                                                          .imgRectangle47,
-                                                                  height: 61.v,
-                                                                  width: 71.h,
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .center,
-                                                                  onTap: () {
-                                                                    onTapImgImageseven(
-                                                                        context);
-                                                                  })
-                                                            ])),
-                                                    SizedBox(height: 2.v),
-                                                    GestureDetector(
-                                                        onTap: () {
-                                                          onTapTxtButtermilk(
-                                                              context);
-                                                        },
-                                                        child: Text(
-                                                            "Buttermilk",
-                                                            style: theme
-                                                                .textTheme
-                                                                .labelMedium))
-                                                  ])),
-                                          Align(
-                                              alignment: Alignment.topRight,
-                                              child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      top: 223.v),
-                                                  child: SizedBox(
-                                                      width: 308.h,
-                                                      child: Divider()))),
-                                          Align(
-                                              alignment: Alignment.centerRight,
-                                              child: SizedBox(
-                                                  width: 309.h,
-                                                  child:
-                                                      Divider(endIndent: 1.h))),
-                                        ]))
-                              ]))));
+                                for (var productData in productList)
+                                  SizedBox(
+                                      height: 824.v,
+                                      width: double.maxFinite,
+                                      child: Stack(
+                                          alignment: Alignment.topLeft,
+                                          children: [
+                                            CustomImageView(
+                                                imagePath: ImageConstant
+                                                    .imgRectangle18,
+                                                height: 88.v,
+                                                width: 96.h,
+                                                alignment: Alignment.topLeft,
+                                                margin: EdgeInsets.only(
+                                                    left: 84.h, top: 28.v),
+                                                onTap: () {
+                                                  onTapImgImage(context);
+                                                }),
+                                          
+                                            Align(
+                                                alignment: Alignment.topRight,
+                                                child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 11.v,
+                                                        right: 155.h),
+                                                    child: Text(
+                                                        productData[
+                                                                "productname"] ??
+                                                            "",
+                                                        style: CustomTextStyles
+                                                            .labelLargeBlack90012))),
+              
+                                            Align(
+                                                alignment: Alignment.topRight,
+                                                child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 14.v, right: 10.h),
+                                                    child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .end,
+                                                        children: [
+                                                          CustomElevatedButton(
+                                                              height: 22.v,
+                                                              width: 55.h,
+                                                              text: "POPULAR",
+                                                              buttonStyle:
+                                                                  CustomButtonStyles
+                                                                      .none,
+                                                              decoration:
+                                                                  CustomButtonStyles
+                                                                      .gradientGreenAToYellowADecoration),
+                                                          SizedBox(
+                                                              height: 18.v),
+                                                          CustomElevatedButton(
+                                                              height: 35.v,
+                                                              width: 77.h,
+                                                              text: "Subscribe",
+                                                              buttonStyle:
+                                                                  CustomButtonStyles
+                                                                      .fillGreenA,
+                                                              buttonTextStyle:
+                                                                  CustomTextStyles
+                                                                      .labelMediumOnPrimary),
+                                                          SizedBox(height: 5.v),
+                                                          CustomOutlinedButton(
+                                                              width: 77.h,
+                                                              text: "ADD")
+                                                        ]))),
+                                           
+                                            Align(
+                                                alignment: Alignment.topCenter,
+                                                child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 29.v),
+                                                    child: Text(
+                                                        productData['quantity']
+                                                            .toString(),
+                                                        style: theme.textTheme
+                                                            .labelMedium))),
+                                           
+                                            Align(
+                                                alignment: Alignment.topCenter,
+                                                child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        right: 152.h),
+                                                    child: Column(
+                                                        mainAxisSize:
+                                                            MainAxisSize.min,
+                                                        children: [
+                                                          SizedBox(
+                                                              height: 100.v),
+                                                          Row(
+                                                              mainAxisAlignment:
+                                                                  MainAxisAlignment
+                                                                      .end,
+                                                              children: [
+                                                                Text(
+                                                                    productData[
+                                                                            'price']
+                                                                        .toString(),
+                                                                    style: CustomTextStyles
+                                                                        .labelMediumBlack900),
+                                                                Padding(
+                                                                    padding: EdgeInsets.only(
+                                                                        left: 16
+                                                                            .h),
+                                                                    child: Text(
+                                                                        productData['price']
+                                                                            .toString(),
+                                                                        style: theme
+                                                                            .textTheme
+                                                                            .labelMedium!
+                                                                            .copyWith(decoration: TextDecoration.lineThrough)))
+                                                              ]),
+                                                       
+                                                        ]))),
+                                            Align(
+                                                alignment: Alignment.topRight,
+                                                child: Container(
+                                                    margin: EdgeInsets.only(
+                                                        top: 175.v,
+                                                        right: 35.h),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 30.h,
+                                                            vertical: 2.v),
+                                                    decoration: AppDecoration
+                                                        .fillBlueGray
+                                                        .copyWith(
+                                                            borderRadius:
+                                                                BorderRadiusStyle
+                                                                    .roundedBorder10),
+                                                    child: Text(
+                                                        "Offer applicable on max 5 units ",
+                                                        style: CustomTextStyles
+                                                            .labelLargeBluegray400))),
+                                            Align(
+                                                alignment: Alignment.topLeft,
+                                                child: Container(
+                                                    margin: EdgeInsets.only(
+                                                        left: 86.h, top: 13.v),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 5.h,
+                                                            vertical: 1.v),
+                                                    decoration: AppDecoration
+                                                        .fillLimeA
+                                                        .copyWith(
+                                                            borderRadius:
+                                                                BorderRadiusStyle
+                                                                    .roundedBorder4),
+                                                    child: Text("30% OFF",
+                                                        style: CustomTextStyles
+                                                            .labelSmallBlack900))),
+                                           
+                                            CustomElevatedButton(
+                                                height: 29.v,
+                                                width: 299.h,
+                                                text:
+                                                    "You are saving ₹20 (30% OFF)With VIP ",
+                                                margin: EdgeInsets.only(
+                                                    top: 137.v, right: 7.h),
+                                                rightIcon: Container(
+                                                    child: CustomImageView(
+                                                        imagePath: ImageConstant
+                                                            .imgKisspngemblem,
+                                                        height: 16.adaptSize,
+                                                        width: 16.adaptSize)),
+                                                buttonStyle:
+                                                    CustomButtonStyles.none,
+                                                decoration: CustomButtonStyles
+                                                    .gradientWhiteToYellow,
+                                                buttonTextStyle:
+                                                    CustomTextStyles
+                                                        .labelLarge13,
+                                                alignment: Alignment.topRight),
+                                           
+                                            Align(
+                                                alignment: Alignment.centerLeft,
+                                                child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        left: 81.h),
+                                                    child: SizedBox(
+                                                        height: 814.v,
+                                                        child: VerticalDivider(
+                                                            width: 1.h,
+                                                            thickness: 1.v)))),                                 
+                                            Align(
+                                                alignment: Alignment.topRight,
+                                                child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        top: 223.v),
+                                                    child: SizedBox(
+                                                        width: 308.h,
+                                                        child: Divider()))),
+                                            Align(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: SizedBox(
+                                                    width: 309.h,
+                                                    child: Divider(
+                                                        endIndent: 1.h))),
+                                          ]))
+                              ])))));
         }
       },
     );
@@ -476,128 +494,4 @@ onTapTxtButtermilk(BuildContext context) {
       transitionDuration: Duration(milliseconds: 300),
     ),
   );
-}
-
-class ProductItem extends StatelessWidget {
-  final Map<String, dynamic> productData;
-
-  const ProductItem({Key? key, required this.productData}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 200, // Adjust as needed
-      width: double.maxFinite,
-      child: Card(
-        margin: EdgeInsets.all(10),
-        child: Row(
-          children: [
-            Expanded(
-              flex: 1,
-              child: CustomImageView(
-                  imagePath: ImageConstant.imgRectangle18,
-                  height: 88.v,
-                  width: 96.h,
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(left: 84.h),
-                  onTap: () {
-                    onTapImgImage(context);
-                  }),
-            ),
-            Expanded(
-                flex: 2,
-                child: Padding(
-                    padding: EdgeInsets.only(right: 155.h),
-                    child: Text(productData["productname"] ?? "",
-                        style: CustomTextStyles.labelLargeBlack90012))),
-            Expanded(
-                flex: 3,
-                child: Padding(
-                    padding: EdgeInsets.only(top: 14.v, right: 10.h),
-                    child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          CustomElevatedButton(
-                              height: 22.v,
-                              width: 55.h,
-                              text: "POPULAR",
-                              buttonStyle: CustomButtonStyles.none,
-                              decoration: CustomButtonStyles
-                                  .gradientGreenAToYellowADecoration),
-                          SizedBox(height: 18.v),
-                          CustomElevatedButton(
-                              height: 35.v,
-                              width: 77.h,
-                              text: "Subscribe",
-                              buttonStyle: CustomButtonStyles.fillGreenA,
-                              buttonTextStyle:
-                                  CustomTextStyles.labelMediumOnPrimary),
-                          SizedBox(height: 5.v),
-                          CustomOutlinedButton(width: 77.h, text: "ADD")
-                        ]))),
-            Expanded(
-                flex: 4,
-                child: Padding(
-                    padding: EdgeInsets.only(top: 29.v),
-                    child: Text(productData['quantity'].toString(),
-                        style: theme.textTheme.labelMedium))),
-            Expanded(
-                flex: 5,
-                child: Padding(
-                    padding: EdgeInsets.only(right: 152.h),
-                    child: Column(mainAxisSize: MainAxisSize.min, children: [
-                      SizedBox(height: 100.v),
-                      Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-                        Text(productData['price'].toString(),
-                            style: CustomTextStyles.labelMediumBlack900),
-                        Padding(
-                            padding: EdgeInsets.only(left: 16.h),
-                            child: Text(productData['price'].toString(),
-                                style: theme.textTheme.labelMedium!.copyWith(
-                                    decoration: TextDecoration.lineThrough)))
-                      ]),
-                    ]))),
-            Expanded(
-                flex: 6,
-                child: Container(
-                    margin: EdgeInsets.only(top: 175.v, right: 35.h),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 30.h, vertical: 2.v),
-                    decoration: AppDecoration.fillBlueGray.copyWith(
-                        borderRadius: BorderRadiusStyle.roundedBorder10),
-                    child: Text("Offer applicable on max 5 units ",
-                        style: CustomTextStyles.labelLargeBluegray400))),
-            Expanded(
-                flex: 7,
-                child: Container(
-                    margin: EdgeInsets.only(left: 86.h, top: 13.v),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 5.h, vertical: 1.v),
-                    decoration: AppDecoration.fillLimeA.copyWith(
-                        borderRadius: BorderRadiusStyle.roundedBorder4),
-                    child: Text("30% OFF",
-                        style: CustomTextStyles.labelSmallBlack900))),
-            Expanded(
-              flex: 8,
-              child: CustomElevatedButton(
-                  height: 29.v,
-                  width: 299.h,
-                  text: "You are saving ₹20 (30% OFF)With VIP ",
-                  margin: EdgeInsets.only(top: 137.v, right: 7.h),
-                  rightIcon: Container(
-                      child: CustomImageView(
-                          imagePath: ImageConstant.imgKisspngemblem,
-                          height: 16.adaptSize,
-                          width: 16.adaptSize)),
-                  buttonStyle: CustomButtonStyles.none,
-                  decoration: CustomButtonStyles.gradientWhiteToYellow,
-                  buttonTextStyle: CustomTextStyles.labelLarge13,
-                  alignment: Alignment.topRight),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }

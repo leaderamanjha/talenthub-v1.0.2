@@ -18,8 +18,8 @@ import 'package:talenthub/widgets/app_bar/custom_app_bar.dart';
 import 'package:talenthub/widgets/custom_elevated_button.dart';
 import 'package:talenthub/widgets/custom_outlined_button.dart';
 import 'dart:convert';
-// ignore: unnecessary_import
-import 'package:flutter/services.dart';
+
+
 import 'package:http/http.dart' as http;
 
 class CurdScreen extends StatefulWidget {

@@ -29,6 +29,7 @@ class CurdScreen extends StatefulWidget {
 
 class _CurdScreenState extends State<CurdScreen> {
   late Future<List<Map<String, dynamic>>?> fetchData;
+  List<Map<String, dynamic>> cart = [];
 
   @override
   void initState() {
@@ -38,7 +39,7 @@ class _CurdScreenState extends State<CurdScreen> {
 
   Future<List<Map<String, dynamic>>?> _fetchData() async {
     final response = await http.post(
-      Uri.parse('http://192.168.1.13:5000/api/product/getallproduct'),
+      Uri.parse('http://192.168.1.26:5000/api/product/getallproduct'),
       headers: <String, String>{
         'Content-Type': 'application/json; charset=UTF-8',
       },
@@ -55,6 +56,25 @@ class _CurdScreenState extends State<CurdScreen> {
       return productDataList;
     } else {
       throw Exception('Failed to load data');
+    }
+  }
+   void onAddToCart(Map<String, dynamic> productData) {
+    bool isProductInCart =
+        cart.any((item) => item['productId'] == productData['productId']);
+
+    if (!isProductInCart) {
+      setState(() {
+        cart.add({
+          'productId': productData['productId'],
+          'productname': productData['productname'],
+          'price': productData['price'],
+          // Add any other relevant product information
+        });
+      });
+
+      print('Product added to cart: ${productData['productname']}');
+    } else {
+      print('Product is already in the cart: ${productData['productname']}');
     }
   }
 
